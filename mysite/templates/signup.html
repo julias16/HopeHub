@@ -1,10 +1,35 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+   <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
-<h1>Signup</h1>
+  <div class="container signup-container">
+    <h2>Create an account</h2>
+    <form>
+      <input type="text" placeholder="Enter Your First name" required>
+      <input type="text" placeholder="Enter Your Last name" required>
+      <input type="email" placeholder="Enter Your Email" required>
+      <input type="password" placeholder="Enter Your Password" required>
+
+      <button type="submit" class="btn">Sign Up</button>
+
+      <div class="divider">Or With</div>
+
+      <button type="button" class="btn facebook">
+        <img src="https://img.icons8.com/color/20/000000/facebook-new.png"/> Signup with Facebook
+      </button>
+
+      <button type="button" class="btn google">
+        <img src="https://img.icons8.com/color/20/000000/google-logo.png"/> Signup with Google
+      </button>
+
+      <p class="switch-text">Already have an account? <a href="{% url 'login' %}">Login</a></p>
+    </form>
+  </div>
 </body>
 </html>
