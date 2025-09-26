@@ -1,0 +1,84 @@
+{% load static %}
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>HopeHub - Donation</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}">
+</head>
+<body>
+
+  <!-- Same Navbar reuse -->
+  <div class="wrap">
+  <header>
+    <div class="brand">
+      <img src="../static/image/logo.jpg" alt="HopeHub Logo">
+    </div>
+    <nav>
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'aboutus' %}">About</a>
+      <a href="{% url 'donateform' %}">Donate</a>
+      <a href="{% url 'blog' %}">Blog</a>
+      <a href="{% url 'contactus' %}">Contact</a>
+      <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+    </nav>
+  </header>
+
+  <!-- Donation Section -->
+  <section class="donation-section">
+    <div class="donation-text">
+      <h1>Your Donation Can Change Lives</h1>
+      <p>Choose what you want to donate and spread hope</p>
+    </div>
+        <div class="donation-image">
+      <img src="../static/image/donation.jpg" alt="Donation Image">
+    </div>
+</section>
+    <form class="donation-form">
+      <h2>Donation Form</h2>
+      <input type="text" placeholder="Full Name" required>
+      <input type="text" placeholder="Email / Phone" required>
+      <input type="text" placeholder="Address / Location" required>
+
+      <div class="form-row">
+        <select required>
+          <option value="">Item (Food / Clothes / Furniture)</option>
+          <option value="food">🍴 Food</option>
+          <option value="clothes">👕 Clothes</option>
+          <option value="furniture">🛋️ Furniture</option>
+        </select>
+        <input type="number" placeholder="Quantity" required>
+      </div>
+        <div class="item-radio-row">
+  <textarea placeholder="Item Details (Food type, Clothes Size, Furniture condition)" required></textarea>
+
+  <div class="radio-group">
+    <label>
+      <input type="radio" name="delivery" value="dropoff"> Immediate drop-off
+    </label>
+    <label>
+      <input type="radio" name="delivery" value="pickup"> Pickup request
+    </label>
+  </div>
+</div>
+
+      <input type="file">
+
+
+
+      <button type="submit" class="donate-btn">Donate Now</button>
+    </form>
+
+    <div class="donation-info">
+      <h3>Why Donation?</h3>
+      <ul>
+        <li>✔ Make a difference in someone's life</li>
+        <li>✔ Reduce waste and help the environment</li>
+      </ul>
+    </div>
+
+  </div>
+</body>
+</html>

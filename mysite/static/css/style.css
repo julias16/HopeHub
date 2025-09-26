@@ -72,7 +72,7 @@ nav{
 /* Hero Main (Text + Button + Image) */
 .hero-main{
   display:flex;
-  flex-direction: row; /* row ensure kora holo */
+  flex-direction: row;
   justify-content: space-between;
   align-items:center;
   gap:28px;
@@ -80,7 +80,7 @@ nav{
 }
 .hero-content{
   flex: 1 1 400px;
-  order:1; /* ensure left side */
+  order:1;
 }
 .hero-content h1{
   font-family: 'Inria Sans',sans-serif;
@@ -95,12 +95,12 @@ nav{
 .hero-content .btn-donate{
   background: var(--green);
   color: white;
-  padding:14px 20px;      /* button boro */
+  padding:14px 20px;
   border-radius:25px;
-  border:2px solid black; /* black border */
+  border:2px solid black;
   font-weight:700;
   font-size:18px;
-  margin-top:20px;         /* title er niche space */
+  margin-top:20px;
   transition: background 0.3s;
 }
 .hero-content .btn-donate:hover{
@@ -108,8 +108,8 @@ nav{
 }
 .hero-image{
   flex: 1 1 360px;
-  order:2; /* ensure right side */
-  text-align:right; /* image right align in its container */
+  order:2;
+  text-align:right;
 }
 .hero-image img{
    width:1300px;
@@ -121,11 +121,11 @@ nav{
 /* Hero Categories */
 .hero-categories{
   display:flex;
-  justify-content:space-between; /* left, center, right spacing */
+  justify-content:space-between;
   align-items:center;
   margin-top:28px;
   flex-wrap:wrap;
-  gap:0; /* space handled by justify-content */
+  gap:0;
 }
 .hero-categories a.cat {
   width: 333px;
@@ -141,13 +141,13 @@ nav{
   align-items: center;
   justify-content: flex-start;
   gap: 12px;
-  text-decoration: none;  /* underline remove */
-  color: inherit;         /* link er color change hobe na */
+  text-decoration: none;
+  color: inherit;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 .hero-categories a.cat:hover {
-  transform: scale(1.05);   /* hover করলে সামান্য বড় হবে */
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* গাঢ় শ্যাডো */
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
 .hero-categories a.cat h4 {
@@ -170,25 +170,25 @@ nav{
 }
 /* Features */
 .features{
-  background:#D0FFE3;         /* background color */
+  background:#D0FFE3;
   border-radius:12px;
   padding:40px 20px;
-  text-align:center;           /* center all text */
+  text-align:center;
   width:1400px;
-  margin:40px auto;            /* center div on page */
+  margin:40px auto;
 }
 .features h3{
-  font-size:28px;              /* boro title */
-  font-weight:800;             /* bold */
-  color:#000;                  /* black text */
+  font-size:28px;
+  font-weight:800;
+  color:#000;
   margin-bottom:16px;
 }
 .features p{
-  font-size:18px;              /* boro description */
-  font-weight:400;             /* regular */
-  color:#133;                  /* dark text */
+  font-size:18px;
+  font-weight:400;
+  color:#133;
   margin:0 auto;
-  max-width:700px;             /* readable width */
+  max-width:700px;
   line-height:1.5;
 }
 .feature-left{flex:1 1 48%;min-width:260px}
@@ -197,8 +197,8 @@ nav{
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(2, 1fr);
   gap:30px;
-  justify-content:center; /* center horizontally */
-  align-items:center;     /* center vertically */
+  justify-content:center;
+  align-items:center;
   margin:40px auto;
   max-width:800px;
 }
@@ -206,7 +206,7 @@ nav{
   position: relative;
   width:350px;
   height:250px;
-  background:white;           /* content er background white */
+  background:white;
   border-radius:20px;
   padding:20px;
   display:flex;
@@ -224,13 +224,13 @@ nav{
   top:-10px; left:-10px;
   width:calc(100% + 20px);
   height:calc(100% + 20px);
-  background: rgba(0,0,0,0.2);  /* black semi-transparent */
-  border-radius:4px;             /* slightly larger for blur edges */
-  filter: blur(8px);             /* blur effect */
-  z-index: -1;                   /* behind content */
+  background: rgba(0,0,0,0.2);
+  border-radius:4px;
+  filter: blur(8px);
+  z-index: -1;
 }
 .fcard:hover{
-  transform: translateY(-5px);   /* subtle hover effect */
+  transform: translateY(-5px);
 }
 .ic{width:44px;height:44px;border-radius:10px;background:var(--accent);
   display:flex;align-items:center;justify-content:center;font-weight:700}
@@ -290,10 +290,10 @@ nav{
   margin-bottom:8px;
 }
 .circle img {
-  width: 80px;   /* image fixed width */
-  height: 80px;  /* image fixed height */
-  object-fit: contain; /* image stretch hobe na */
-  margin-bottom: 15px; /* number theke gap */
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-bottom: 15px;
 }
 
 .circle p{
@@ -310,8 +310,8 @@ nav{
 }
 
 .testimonials h3 {
-  font-size: 38px;     /* boro */
-  font-weight: 700;    /* bold */
+  font-size: 38px;
+  font-weight: 700;
   margin-bottom: 50px;
 }
 
@@ -326,8 +326,8 @@ nav{
   background: #D9D9D9;
   border-radius: 20px;
   padding: 40px 30px;
-  width: 550px;        /* width barano */
-  min-height: 250px;   /* height komano */
+  width: 550px;
+  min-height: 250px;
   text-align: center;
   position: relative;
 }
@@ -357,7 +357,7 @@ nav{
 .profile {
   display: flex;
   flex-direction: column;
-  align-items: center;  /* center e bosাবে */
+  align-items: center;
   justify-content: center;
 }
 
@@ -371,7 +371,7 @@ nav{
   color: #333;
 }
 
-/* Dots niche thakbe section er */
+
 .dots {
   margin-top: 30px;
   display: flex;
@@ -395,7 +395,7 @@ nav{
 
 
 
-/* Footer */
+
 /* Footer */
 footer {
   background: #C6FFE2;
@@ -441,17 +441,17 @@ footer .social-icons {
   margin-top: 8px;
 }
 .footer-col .social-icons img {
-  width: 28px;  /* fixed width */
-  height: 28px; /* fixed height */
-  object-fit: cover; /* ensure image properly fits */
-  border-radius: 50%; /* optional: circle icon */
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 /* Copyright text */
 .copyright {
-  text-align: center;       /* center-align text */
-  color: #000;              /* কালো লেখা */
-  font-size: 20px;          /* font size */
-  margin: 12px 0 20px 0;    /* উপরে-নিচে spacing */
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  margin: 12px 0 20px 0;
 }
 
 .contact-form input,.contact-form textarea{
@@ -482,15 +482,15 @@ footer .social-icons {
 }
 
 .login-container {
-  background-color: #4cd3b6;  /* green shade */
-   border: 2px solid black;     /* kalo border */
+  background-color: #4cd3b6;
+   border: 2px solid black;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 .signup-container {
   background-color: #d2b48c;
-   border: 2px solid black;     /* kalo border */
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8); /* brown shade */
+   border: 2px solid black;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
 }
 
 h2 {
@@ -553,24 +553,29 @@ input {
   font-weight: bold;
 }
 /* Donation Section */
-.donation-hero {
+.donation-section {
   display: flex;
-  justify-content: space-between; /* বাম-ডান spacing */
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
   max-width: 1200px;
-  margin: 40px auto;
-  padding: 20px;
+  margin: 0 auto;
+  padding: 0;
   gap: 40px;
+  flex-direction: row;
+
 }
 .donation-text {
-  flex: 1; /* বাম দিকে space নেবে */
+  flex: 1;
   text-align: left;
+   margin: 0;
+  padding: 0;
 }
 
 .donation-text h1 {
   font-size: 2.2rem;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin: 0;
+  padding: 0;
 }
 
 .donation-text p {
@@ -578,22 +583,42 @@ input {
   color: #444;
   margin-bottom: 20px;
 }
-.donation-image img {
-  width: 380px;
-  height: 304px;
-  flex: 1; /* ডান দিকে space নেবে */
+.donation-image {
+  flex: 0 0 auto;
   text-align: right;
+  justify-content: flex-end;
+  padding: 0;
+  margin-left: auto;
+  margin-top: -20px;
+}
 
+.donation-image img {
+  width: 350px;
+  height: 260px;
+  border-radius: 30%;
+  flex: 1;
+  text-align: right;
 }
 .donation-form {
-  background: #f9f9f9;         /* light grey box */
-  padding: 20px;               /* padding একটু কমানো */
+  background: #e1dfdf;
+  padding: 16px;
   border-radius: 8px;
-  border: 2px solid #000;      /* black border */
-  box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.4);
+  border: 2px solid #000;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.97);
   text-align: left;
-  margin: 40px auto 0 auto;    /* top 40px, horizontally centered */
-  max-width: 1200px;            /* form ছোট করা হয়েছে */
+  margin: 20px auto;
+  max-width: 1100px;
+}
+input[type="file"]::file-selector-button {
+  background: #0b5130;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+input[type="radio"] {
+  accent-color: black;
 }
 
 .donation-form h2 {
@@ -608,9 +633,13 @@ input {
   width: 100%;
   padding: 12px;
   margin-bottom: 15px;
-  border-radius: 20px;  /* screenshot er moto gol pattern */
+  border-radius: 20px;
   border: 1px solid #000;
   font-size: 1rem;
+}
+.donation-form input[type="file"] {
+  margin-top: -10px;
+  margin-bottom: 15px;
 }
 
 .form-row {
@@ -619,26 +648,51 @@ input {
 }
 .form-row select,
 .form-row input {
-  flex: 1;             /* item + quantity সমান height রাখবে */
+  flex: 1;
 }
 
-textarea {
-  resize: none;
-  height: 80px;
-  width: 100%;
-  /* item + quantity এর সমান width */
-}
-.radio-group {
+
+/* Container for item details + radio buttons */
+.item-radio-row {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  align-items: flex-start;
   gap: 20px;
   margin-bottom: 15px;
 }
 
+/* Item Details textarea */
+.item-radio-row textarea {
+  width: 60%;
+  min-height: 80px;
+  resize: none;
+  padding: 12px 16px;
+  border-radius: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.97);
+  font-size: 1rem;
+}
+
+/* Radio buttons on right */
+.item-radio-row .radio-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  width: 35%;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-bottom: 0;
+}
 .donate-btn {
-  background: #00b15d;
+  background: #0e805a;
   color: white;
-  border: 1px solid #000;
+  border: 2px solid #000;
   padding: 12px 18px;
   border-radius: 6px;
   cursor: pointer;
@@ -648,7 +702,7 @@ textarea {
 }
 
 .donate-btn:hover {
-  background: #00914b;
+  background: #09885e;
 }
 
 .donation-info {
