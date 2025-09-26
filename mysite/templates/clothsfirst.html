@@ -49,7 +49,8 @@
     </div>
   </div>
 
- <!-- Footer -->
+    <!-- Footer -->
+   <!-- Footer -->
     <footer>
   <!-- Column 1: About -->
 <div class="footer-col">
@@ -66,10 +67,10 @@ Join our community to make a real impact.</p>
   <div class="footer-col links">
     <h4>Quick Links</h4>
     <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Donate</li>
-      <li>Contact</li>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %}">About Us</a></li>
+      <li><a href="{% url 'donateform' %}">Donate</a></li>
+      <li><a href="{% url 'contactus' %}">Contact Us</a></li>
     </ul>
   </div>
 
@@ -77,10 +78,10 @@ Join our community to make a real impact.</p>
   <div class="footer-col resources">
     <h4>Resources</h4>
     <ul>
-      <li>FAQ</li>
-      <li>Blog</li>
-      <li>Terms & Condition</li>
-      <li>Privacy Policy</li>
+      <li><a href="{% url 'faq' %}">FAQ</a></li>
+      <li><a href="{% url 'blog' %}">Blog</a></li>
+      <li><a href="{% url 'termsconditions' %}">Trams & Conditions</a></li>
+      <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
     </ul>
   </div>
 
@@ -97,7 +98,7 @@ Join our community to make a real impact.</p>
  <div class="copyright">
   Copyright &copy; 2025 | HopeHub
 </div>
-</div>
+  </div>
+
 </body>
 </html>
-

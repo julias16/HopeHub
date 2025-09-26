@@ -5,12 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HopeHub - Food Section</title>
+  <title>HopeHub - Privacy Policy</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'css/foodfirst.css' %}">
+  <link rel="stylesheet" href="{% static 'css/privacypolicy.css' %}">
 </head>
 <body>
 
@@ -29,27 +29,67 @@
         <a href="{% url 'contactus' %}">Contact</a>
         <a class="cta" href="{% url 'login' %}">Login/Signup</a>
       </nav>
-
     </header>
 
-  <!-- Banner -->
-  <div class="banner-container">
-  <div class="banner">You are on FOOD section!</div>
+<div class="wrap">
+    <section class="privacy">
+      <h1>📌 Privacy Policy</h1>
+      <p>We value your privacy. This policy explains how we handle your information:</p>
+
+      <h2>Information We Collect</h2>
+      <ul>
+        <li>Name, email, phone number, and address (for profile and pickup coordination).</li>
+        <li>Item details, listings, and requests.</li>
+        <li>Messages exchanged within the platform.</li>
+      </ul>
+
+      <h2>How We Use Information</h2>
+      <ul>
+        <li>To connect donors and receivers.</li>
+        <li>To notify you about requests, approvals, or messages.</li>
+        <li>To improve services and provide user support.</li>
+      </ul>
+
+      <h2>Data Privacy</h2>
+      <ul>
+        <li>Your personal contact details (email/phone) will not be publicly visible.</li>
+        <li>Location information is shared only for item pickup coordination.</li>
+      </ul>
+
+      <h2>Data Security</h2>
+      <ul>
+        <li>Passwords are encrypted before storage.</li>
+        <li>Data is backed up daily to avoid loss.</li>
+      </ul>
+
+      <h2>Sharing Information</h2>
+      <ul>
+        <li>We do not sell or rent your personal data to third parties.</li>
+        <li>Data may be shared with law enforcement if required by law.</li>
+      </ul>
+
+      <h2>Cookies & Tracking</h2>
+      <ul>
+        <li>We may use cookies to improve user experience.</li>
+        <li>You can disable cookies in your browser settings.</li>
+      </ul>
+
+      <h2>User Control</h2>
+      <ul>
+        <li>You can update or delete your account anytime.</li>
+        <li>You can report content or users who misuse the platform.</li>
+      </ul>
+
+      <h2>Policy Updates</h2>
+      <ul>
+        <li>We may update our privacy policy as needed. Changes will be posted on this page.</li>
+      </ul>
+    </section>
 </div>
 
-  <!-- Cards -->
-  <div class="cards">
-    <div class="card">
-      <img src="../static/image/food-donation.png" alt="donate">
-      <a href="{% url 'donateform' %}"><p>Donate</p></a>
-    </div>
-    <div class="card">
-      <img src="../static/image/food-receive.png" alt="receive">
-      <p>Receive</p>
-    </div>
-  </div>
 
-    <!-- Footer -->
+
+   <!-- Footer -->
    <!-- Footer -->
     <footer>
   <!-- Column 1: About -->

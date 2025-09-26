@@ -1,3 +1,5 @@
+from urllib import request
+
 from django.shortcuts import render
 
 
@@ -21,3 +23,9 @@ def donateform(request):
     return render(request, 'donateform.html')
 def blog(request):
     return render(request, 'blog.html')
+def faq(request):
+    return render(request, 'faq.html')
+def termsconditions(request):
+    return render(request, 'termsconditions.html')
+def privacypolicy(request):
+    return render(request, 'privacypolicy.html')

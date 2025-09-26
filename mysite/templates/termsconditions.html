@@ -5,12 +5,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HopeHub - Food Section</title>
+  <title>HopeHub - Terms & Conditions</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="{% static 'css/foodfirst.css' %}">
+  <link rel="stylesheet" href="{% static 'css/termsconditions.css' %}">
 </head>
 <body>
 
@@ -29,27 +29,58 @@
         <a href="{% url 'contactus' %}">Contact</a>
         <a class="cta" href="{% url 'login' %}">Login/Signup</a>
       </nav>
-
     </header>
 
-  <!-- Banner -->
-  <div class="banner-container">
-  <div class="banner">You are on FOOD section!</div>
-</div>
+<div class="wrap">
+    <section class="terms">
+      <h1>📌 Terms and Conditions</h1>
+      <p>Welcome to our donation platform. By using our website, you agree to the following terms:</p>
 
-  <!-- Cards -->
-  <div class="cards">
-    <div class="card">
-      <img src="../static/image/food-donation.png" alt="donate">
-      <a href="{% url 'donateform' %}"><p>Donate</p></a>
-    </div>
-    <div class="card">
-      <img src="../static/image/food-receive.png" alt="receive">
-      <p>Receive</p>
-    </div>
+      <h2>Eligibility</h2>
+      <ul>
+        <li>Users must provide accurate information during signup.</li>
+        <li>Users must be at least 18 years old or have parental/guardian permission.</li>
+      </ul>
+
+      <h2>Use of Platform</h2>
+      <ul>
+        <li>The platform is only for donation and receiving of food, clothes, and furniture.</li>
+        <li>Users must not post harmful, unsafe, or illegal content.</li>
+      </ul>
+
+      <h2>Donor Responsibilities</h2>
+      <ul>
+        <li>Donors must ensure items are in usable condition.</li>
+        <li>Perishable food must not be expired.</li>
+      </ul>
+
+      <h2>Receiver Responsibilities</h2>
+      <ul>
+        <li>Receivers must collect items on time once requests are approved.</li>
+        <li>Items must not be resold for profit.</li>
+      </ul>
+
+      <h2>Admin Rights</h2>
+      <ul>
+        <li>Admins can remove users or posts that violate rules.</li>
+        <li>Admins may suspend accounts for repeated violations.</li>
+      </ul>
+
+      <h2>Liability Disclaimer</h2>
+      <ul>
+        <li>The platform is only a connector between donors and receivers.</li>
+        <li>We are not responsible for the quality, safety, or outcome of donations.</li>
+      </ul>
+
+      <h2>Account Termination</h2>
+      <ul>
+        <li>Users who misuse the platform may have their accounts permanently banned.</li>
+      </ul>
+    </section>
   </div>
 
-    <!-- Footer -->
+
+   <!-- Footer -->
    <!-- Footer -->
     <footer>
   <!-- Column 1: About -->
