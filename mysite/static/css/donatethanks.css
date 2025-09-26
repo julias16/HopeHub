@@ -1,0 +1,66 @@
+body {
+  font-family: 'Inter', sans-serif;
+  background: #f7f7f7;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.thankyou-container {
+  background: #fff;
+  padding: 80px;               /* আগে 50px ছিল */
+  text-align: center;
+  border-radius: 12px;         /* একটু বেশি গোল */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  max-width: 700px;            /* container বড় */
+  width: 95%;
+}
+
+.thankyou-container h1 {
+  font-size: 2.8rem;           /* বড় title */
+  font-weight: 800;
+  margin-bottom: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.thankyou-img {
+  width: 55px;                 /* বড় icon */
+  height: auto;
+}
+
+.thankyou-small-img {
+  width: 40px;                 /* ছোট image ও বড় করা হলো */
+  height: auto;
+  margin-left: 8px;
+  vertical-align: middle;
+}
+
+.thankyou-container p {
+  font-size: 1.3rem;           /* text বড় */
+  margin: 12px 0;
+  color: #333;
+}
+
+.home-btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 35px;          /* button বড় */
+  background: #a4e3c0;
+  color: #000;
+  font-size: 1.2rem;           /* text বড় */
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.25);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.home-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.35);
+}

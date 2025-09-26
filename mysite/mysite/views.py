@@ -21,3 +21,5 @@ def donateform(request):
     return render(request, 'donateform.html')
 def blog(request):
     return render(request, 'blog.html')
+def donatethanks(request):
+    return render(request, 'donatethanks.html')
