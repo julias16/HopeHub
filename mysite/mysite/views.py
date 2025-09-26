@@ -21,3 +21,11 @@ def donateform(request):
     return render(request, 'donateform.html')
 def blog(request):
     return render(request, 'blog.html')
+def faq(request):
+    return render(request, 'faq.html')
+def privacypolicy(request):
+    return render(request, 'privacypolicy.html')
+def termsconditions(request):
+    return render(request, 'termsconditions.html')
+def donatethanks(request):
+    return render(request, 'donatethanks.html')

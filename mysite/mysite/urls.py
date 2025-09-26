@@ -30,4 +30,8 @@ urlpatterns = [
     path('signup', views.signup, name='signup'),
     path('donateform', views.donateform, name='donateform'),
     path('blog', views.blog, name='blog'),
+    path('faq', views.faq, name='faq'),
+    path('termsconditions', views.termsconditions, name='termsconditions'),
+    path('privacypolicy', views.privacypolicy, name='privacypolicy'),
+    path('donatethanks' , views.donatethanks , name='donatethanks'),
 ]
