@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeHub - FAQ</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/faq.css' %}">
+</head>
+<body>
+
+<div class="wrap">
+  <!-- Header -->
+    <header>
+      <div class="brand">
+         <a href="{% url 'home' %}"> <img src="../static/image/logo.png" alt="HopeHub Logo"> </a>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'aboutus' %}">About</a>
+        <a href="{% url 'donateform' %}">Donate</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'contactus' %}">Contact</a>
+        <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+      </nav>
+    </header>
+
+  <body>
+  <section class="faq">
+    <h1>📌 FAQ (Frequently Asked Questions)</h1>
+
+    <div class="faq-item">
+      <button class="faq-question">Q1: What is this platform about?</button>
+      <div class="faq-answer">
+        <p>This is a community-driven platform where people can donate food, clothes, and furniture, and others in need can request them. Our goal is to reduce waste and support underprivileged communities.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q2: Who can use this platform?</button>
+      <div class="faq-answer">
+        <p>Anyone can register as a user. You can act as both a donor (to give items) and a receiver (to request items). Admins oversee the platform to ensure safety and fairness.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q3: Is it free to use?</button>
+      <div class="faq-answer">
+        <p>Yes. Donating, requesting, and using the platform is completely free.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q4: How do I donate an item?</button>
+      <div class="faq-answer">
+        <p>After logging in, go to “Donate Item,” upload a picture, write details, and post. Receivers can then request it.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q5: How do I request an item?</button>
+      <div class="faq-answer">
+        <p>Browse or search for available items. If you see something you need, click “Request” and wait for the donor’s approval.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q6: How do pickups work?</button>
+      <div class="faq-answer">
+        <p>The donor and receiver coordinate through the in-app chat to decide pickup location and time. The platform does not currently provide delivery.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q7: How is trust maintained between users?</button>
+      <div class="faq-answer">
+        <p>We have a rating and feedback system. You can report suspicious users, and admins will review complaints.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q8: Can expired or unsafe food be donated?</button>
+      <div class="faq-answer">
+        <p>No. Donors are responsible for ensuring that food is fresh and safe before donation. Expiry reminders are built into the system.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q9: Can I donate or request multiple items?</button>
+      <div class="faq-answer">
+        <p>Yes, users can donate and request as many items as they want, subject to fair use policies.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">Q10: What should I do if I face an issue?</button>
+      <div class="faq-answer">
+        <p>Use the “Report” button or contact us through the “Contact Us” page. Our admin team will handle it.</p>
+      </div>
+    </div>
+  </section>
+
+
+<script>
+    // Accordion toggle
+    const questions = document.querySelectorAll(".faq-question");
+    questions.forEach(q => {
+      q.addEventListener("click", () => {
+        q.classList.toggle("active");
+        let answer = q.nextElementSibling;
+        if (answer.style.maxHeight) {
+          answer.style.maxHeight = null;
+        } else {
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    });
+  </script>
+
+   <!-- Footer -->
+   <!-- Footer -->
+    <footer>
+  <!-- Column 1: About -->
+<div class="footer-col">
+  <h4>About</h4>
+  <p>HopeHub helps you donate food, clothes, and furniture to those in need.
+Join our community to make a real impact.</p>
+  <div class="social-icons">
+    <img src="../static/image/facebook.png" alt="Facebook">
+    <img src="../static/image/whatsapp.png" alt="WhatsApp">
+    <img src="../static/image/gmail.png" alt="Gmail">
+  </div>
+</div>
+  <!-- Column 2: Quick Links -->
+  <div class="footer-col links">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %}">About Us</a></li>
+      <li><a href="{% url 'donateform' %}">Donate</a></li>
+      <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Column 3: Resources -->
+  <div class="footer-col resources">
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="{% url 'faq' %}">FAQ</a></li>
+      <li><a href="{% url 'blog' %}">Blog</a></li>
+      <li><a href="{% url 'termsconditions' %}">Trams & Conditions</a></li>
+      <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+
+      <div class="footer-col contact-form" style="max-width:320px">
+        <h4>Have a Question?</h4>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea rows="3" placeholder="Message"></textarea>
+        <button>Send</button>
+      </div>
+    </footer>
+
+ <div class="copyright">
+  Copyright &copy; 2025 | HopeHub
+</div>
+  </div>
+
+</body>
+</html>
