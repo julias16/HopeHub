@@ -1,15 +1,148 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Blog</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeHub - Blog</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/blog.css' %}">
 </head>
 <body>
-<a href="{% url 'home' %}">Home</a> <br>
-<a href="{% url 'contactus' %}">Contact Us</a> <br>
-<a href="{% url 'donateform' %}">Donate</a> <br>
-<a href="{% url 'blog' %}">Blog</a> <br>
-<a href="{% url 'login' %}">Login</a> <br>
-<a href="{% url 'signup' %}">Sign Up</a> <br>
+
+<div class="wrap">
+  <!-- Header -->
+    <header>
+      <div class="brand">
+         <a href="{% url 'home' %}"> <img src="../static/image/logo.png" alt="HopeHub Logo"> </a>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'aboutus' %}">About</a>
+        <a href="{% url 'donateform' %}">Donate</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'contactus' %}">Contact</a>
+        <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+      </nav>
+    </header>
+
+    <section class="mission">
+    <h2>🌍 Building a Community of Sharing: Our Mission to Reduce Waste and Spread Kindness</h2>
+    <p>
+      In every corner of our cities, there are two realities that live side by side. On one hand, people throw away leftover food, clothes they no longer wear, and furniture they no longer need. On the other hand, many families struggle to find enough to eat, children go without proper clothing, and households lack even the most basic furniture.
+    </p>
+    <p>
+      This gap between waste and need is what inspired us to create <strong>Community Support Distribution Network</strong> — a web-based platform where people can donate what they don’t need and receive what they do. It’s more than just a website. It’s a step toward sustainability, kindness, and community connection.
+    </p>
+
+    <h2>🍲 Why Food, Clothes, and Furniture?</h2>
+    <p><strong>Food:</strong> In cities like Dhaka and Chattogram, tons of edible food is wasted daily while many people go hungry. By creating a system for sharing extra meals before they expire, we can reduce waste and feed those in need.</p>
+    <p><strong>Clothes:</strong> Fashion cycles are faster than ever, but what’s out of style for one person could mean warmth and dignity for another. Reusing clothes keeps them out of landfills and gives them a second life.</p>
+    <p><strong>Furniture:</strong> Moving, upgrading, or simply running out of space leads to good furniture being discarded. At the same time, many households lack even a chair or table. Sharing furniture reduces dumping and supports struggling families.</p>
+
+    <h2>💡 How Our Platform Works</h2>
+    <ul>
+      <li><strong>Sign Up:</strong> Users can create a profile with their basic details.</li>
+      <li><strong>Post or Browse:</strong> Donors can list food, clothes, or furniture they want to give away, while receivers can browse available items.</li>
+      <li><strong>Request & Approve:</strong> A receiver requests an item, and the donor decides whether to approve.</li>
+      <li><strong>Pickup & Share:</strong> Both parties communicate through in-app chat and arrange a pickup.</li>
+      <li><strong>Rate & Review:</strong> After the exchange, users can leave feedback to build trust.</li>
+    </ul>
+    <p>
+      We also use maps to show pickup locations and expiry alerts for perishable food, ensuring donations reach the right people at the right time.
+    </p>
+
+    <h2>🔑 Key Features</h2>
+    <ul>
+      <li>User Roles: Donor, Receiver, and Admin</li>
+      <li>Item Listings: With images, descriptions, and availability</li>
+      <li>Request System: Approvals and real-time notifications</li>
+      <li>Search & Filters: By category, location, availability, or expiry</li>
+      <li>Maps Integration: See pickup points and calculate distances</li>
+      <li>Reminders: Get alerts for perishable food</li>
+      <li>Chat System: Coordinate pickups securely within the platform</li>
+      <li>Ratings & Feedback: Build accountability and trust</li>
+      <li>Admin Dashboard: Manage users, listings, and reports</li>
+    </ul>
+
+    <h2>🌱 Why This Project Matters</h2>
+    <ul>
+      <li><strong>Reduces Waste:</strong> Items that would have been discarded are given a new purpose.</li>
+      <li><strong>Supports Communities:</strong> Families and individuals in need get essential support.</li>
+      <li><strong>Promotes Sustainability:</strong> Encourages reuse and reduces environmental impact.</li>
+      <li><strong>Builds Connections:</strong> Donors and receivers become part of a cycle of kindness.</li>
+    </ul>
+
+    <h2>🚀 Looking Ahead</h2>
+    <ul>
+      <li>Add more categories like books, electronics, and school supplies.</li>
+      <li>Develop a mobile app for faster, easier access.</li>
+      <li>Partner with NGOs and local governments to expand our reach.</li>
+      <li>Introduce pickup scheduling and delivery support for larger items.</li>
+    </ul>
+
+    <h2>🤝 Join the Movement</h2>
+    <p>
+      We believe that small acts of sharing can create big changes. Every extra meal, every unused shirt, every spare chair has the power to transform someone’s day.
+    </p>
+    <p>
+      Whether you are a donor wanting to give back, a receiver in need, or an organization looking to collaborate, our platform is here for you.
+    </p>
+    <p><strong>Together, we can create a culture of giving, reduce waste, and build stronger, kinder communities. 🌍💚</strong></p>
+  </section>
+<!-- Footer -->
+    <footer>
+  <!-- Column 1: About -->
+<div class="footer-col">
+  <h4>About</h4>
+  <p>HopeHub helps you donate food, clothes, and furniture to those in need.
+Join our community to make a real impact.</p>
+  <div class="social-icons">
+    <img src="../static/image/facebook.png" alt="Facebook">
+    <img src="../static/image/whatsapp.png" alt="WhatsApp">
+    <img src="../static/image/gmail.png" alt="Gmail">
+  </div>
+</div>
+  <!-- Column 2: Quick Links -->
+  <div class="footer-col links">
+    <h4>Quick Links</h4>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Donate</li>
+      <li>Contact</li>
+    </ul>
+  </div>
+
+  <!-- Column 3: Resources -->
+  <div class="footer-col resources">
+    <h4>Resources</h4>
+    <ul>
+      <li>FAQ</li>
+      <li>Blog</li>
+      <li>Terms & Condition</li>
+      <li>Privacy Policy</li>
+    </ul>
+  </div>
+
+
+      <div class="footer-col contact-form" style="max-width:320px">
+        <h4>Have a Question?</h4>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea rows="3" placeholder="Message"></textarea>
+        <button>Send</button>
+      </div>
+    </footer>
+
+ <div class="copyright">
+  Copyright &copy; 2025 | HopeHub
+</div>
+</div>
 </body>
 </html>
