@@ -1,16 +1,103 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeHub - Furniture Section</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="{% static 'css/furniturefirst.css' %}">
 </head>
 <body>
-<a href="{% url 'home' %}">Home</a> <br>
-<a href="{% url 'aboutus' %}">About Us</a> <br>
-<a href="{% url 'contactus' %}">Contact Us</a> <br>
-<a href="{% url 'donateform' %}">Donate</a> <br>
-<a href="{% url 'blog' %}">Blog</a> <br>
-<a href="{% url 'login' %}">Login</a> <br>
-<a href="{% url 'signup' %}">Sign Up</a> <br>
+
+<div class="wrap">
+  <!-- Header -->
+    <header>
+      <div class="brand">
+         <a href="{% url 'home' %}"> <img src="../static/image/logo.jpg" alt="HopeHub Logo"> </a>
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'aboutus' %}">About</a>
+        <a href="{% url 'donateform' %}">Donate</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'contactus' %}">Contact</a>
+        <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+      </nav>
+
+    </header>
+
+  <!-- Banner -->
+  <div class="banner-container">
+  <div class="banner">You are on FURNITURE section!</div>
+</div>
+
+  <!-- Cards -->
+  <div class="cards">
+    <div class="card">
+      <img src="../static/image/furniture-donation.png" alt="donate">
+      <a href="{% url 'donateform' %}"><p>Donate</p></a>
+    </div>
+    <div class="card">
+      <img src="../static/image/furniture-receive.png" alt="receive">
+      <p>Receive</p>
+    </div>
+  </div>
+
+ <!-- Footer -->
+    <footer>
+  <!-- Column 1: About -->
+<div class="footer-col">
+  <h4>About</h4>
+  <p>HopeHub helps you donate food, clothes, and furniture to those in need.
+Join our community to make a real impact.</p>
+  <div class="social-icons">
+    <img src="../static/image/facebook.png" alt="Facebook">
+    <img src="../static/image/whatsapp.png" alt="WhatsApp">
+    <img src="../static/image/gmail.png" alt="Gmail">
+  </div>
+</div>
+  <!-- Column 2: Quick Links -->
+  <div class="footer-col links">
+    <h4>Quick Links</h4>
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Donate</li>
+      <li>Contact</li>
+    </ul>
+  </div>
+
+  <!-- Column 3: Resources -->
+  <div class="footer-col resources">
+    <h4>Resources</h4>
+    <ul>
+      <li>FAQ</li>
+      <li>Blog</li>
+      <li>Terms & Condition</li>
+      <li>Privacy Policy</li>
+    </ul>
+  </div>
+
+
+      <div class="footer-col contact-form" style="max-width:320px">
+        <h4>Have a Question?</h4>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea rows="3" placeholder="Message"></textarea>
+        <button>Send</button>
+      </div>
+    </footer>
+
+ <div class="copyright">
+  Copyright &copy; 2025 | HopeHub
+</div>
+</div>
 </body>
 </html>
+
