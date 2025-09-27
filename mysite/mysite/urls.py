@@ -33,5 +33,5 @@ urlpatterns = [
     path('faq', views.faq, name='faq'),
     path('termsconditions', views.termsconditions, name='termsconditions'),
     path('privacypolicy', views.privacypolicy, name='privacypolicy'),
-    path('donatethanks' , views.donatethanks , name='donatethanks'),
+    path('donatethanks' , views.massagethanks , name='massagethanks'),
 ]

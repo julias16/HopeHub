@@ -27,5 +27,5 @@ def privacypolicy(request):
     return render(request, 'privacypolicy.html')
 def termsconditions(request):
     return render(request, 'termsconditions.html')
-def donatethanks(request):
-    return render(request, 'donatethanks.html')
+def massagethanks(request):
+    return render(request, 'massagethanks.html')
