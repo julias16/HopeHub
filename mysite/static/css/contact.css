@@ -1,0 +1,132 @@
+:root{
+  --green: #05533f;
+  --green-dark: #076b25;
+  --accent:#f1fdf6;
+  --muted: #ffffff;
+  --soft:#eafdf3;
+  --radius:14px;
+  --shadow: 0 6px 20px rgba(16,42,30,0.08);
+  font-family: "Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+body, h1, h2, h3, h4, h5, h6, input, textarea, button, p {
+    font-family: 'Inria Sans', sans-serif;
+}
+body{
+  margin:0;
+  background: #ffffff;
+  color:#133;
+  line-height:1.4;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{
+  max-width: 1440px;
+  width: 100%;
+  margin:28px auto;
+  padding:0 20px;
+}
+
+/* Header */
+header{
+  width:100%;
+  height:100px;
+  background:white;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand img{
+  width:180px;
+  height:auto;
+}
+nav{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  font-weight:600;
+  margin-left:auto;
+}
+.cta {
+  background: var(--green);
+  color: white;
+  padding: 8px 14px;
+  border-radius:25px;
+  border:2px solid black;
+  font-weight:700;
+  transition: background 0.3s;
+}
+.cta:hover{
+  background: var(--green-dark);
+}
+/* === Contact Section === */
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1440px;
+    margin: 60px auto;
+    padding: 40px;
+    background: #fff;
+
+    gap: 40px;
+}
+.contact-left {
+    flex: 1;
+}
+.contact-left h1 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+.contact-left p {
+    margin-bottom: 25px;
+    color: #555;
+}
+.contact-form label {
+    display: block;
+    margin: 14px 0 6px;
+    font-weight: 500;
+}
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 15px;
+    transition: border-color .3s;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #0b5130;
+    outline: none;
+}
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+.contact-form button {
+    margin-top: 20px;
+    background: #4a7c3a;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background .3s;
+}
+.contact-form button:hover {
+    background: #3d6a30;
+}
+.contact-right img {
+    max-width: 320px;
+    width: 100%;
+    display: block;
+    border-radius: 8px;
+}

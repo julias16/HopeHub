@@ -1,17 +1,59 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HopeHub - About</title>
+
+  <link rel="stylesheet" href="{% static 'css/contact.css'%}">
 </head>
 <body>
-<h1>Kohinor</h1>
 
-<a href="{% url 'home' %}">Home</a> <br>
-<a href="{% url 'aboutus' %}">About Us</a> <br>
-<a href="{% url 'donateform' %}">Donate</a> <br>
-<a href="{% url 'blog' %}">Blog</a> <br>
-<a href="{% url 'login' %}">Login</a> <br>
-<a href="{% url 'signup' %}">Sign Up</a> <br>
+  <!-- Navbar -->
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <img src="../static/image/logo.png" alt="HopeHub Logo">
+      </div>
+
+      <nav aria-label="Main navigation">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'aboutus' %}">About</a>
+        <a href="{% url 'donateform' %}">Donate</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'contactus' %}">Contact</a>
+        <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+      </nav>
+
+    </header>
+      <!--contact section -->
+  <section class="contact-section">
+      <div class="contact-left">
+          <h1>Contact Us</h1>
+          <p>Have questions or need more information?<br>
+             We'd love to hear from you!</p>
+
+          <form class="contact-form">
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your Name">
+
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Your Email">
+
+              <label>Message</label>
+              <textarea name="message" placeholder="Write your message"></textarea>
+
+              <button type="submit">Send Message</button>
+          </form>
+      </div>
+
+      <div class="contact-right">
+          <img src="../static/image/contact.jpg" alt="Contacts">
+      </div>
+  </section>
+
+  </div>
 </body>
 </html>
