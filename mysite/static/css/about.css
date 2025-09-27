@@ -152,17 +152,17 @@ footer .social-icons {
   margin-top: 8px;
 }
 .footer-col .social-icons img {
-  width: 28px;  /* fixed width */
-  height: 28px; /* fixed height */
-  object-fit: cover; /* ensure image properly fits */
-  border-radius: 50%; /* optional: circle icon */
+  width: 28px;
+  height: 28px;
+  object-fit: cover;
+  border-radius: 50%;
 }
 /* Copyright text */
 .copyright {
-  text-align: center;       /* center-align text */
-  color: #000;              /* কালো লেখা */
-  font-size: 20px;          /* font size */
-  margin: 12px 0 20px 0;    /* উপরে-নিচে spacing */
+  text-align: center;
+  color: #000;
+  font-size: 20px;
+  margin: 12px 0 20px 0;
 }
 
 .contact-form input,.contact-form textarea{
