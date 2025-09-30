@@ -1,0 +1,94 @@
+{% load static %}
+<!doctype html>
+<html lang="bn">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}HopeHub{% endblock %}</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- External CSS -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+  <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <img src="{% static 'image/logo.png' %}" alt="HopeHub Logo">
+      </div>
+
+      <nav aria-label="Main navigation">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'aboutus' %}">About</a>
+  <a href="{% url 'donateform' %}">Donate</a>
+  <a href="{% url 'blog' %}">Blog</a>
+  <a href="{% url 'contactus' %}">Contact</a>
+
+  {% if user.is_authenticated %}
+    <a href="{% url 'profile' %}" class="profile-icon">
+      <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
+    </a>
+  {% else %}
+    <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+  {% endif %}
+</nav>
+
+    </header>
+
+    <!-- Page-specific Content -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-col">
+        <h4>About</h4>
+        <p>HopeHub helps you donate food, clothes, and furniture to those in need. Join our community to make a real impact.</p>
+        <div class="social-icons">
+          <img src="{% static 'image/facebook.png' %}" alt="Facebook">
+          <img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp">
+          <img src="{% static 'image/gmail.png' %}" alt="Gmail">
+        </div>
+      </div>
+
+      <div class="footer-col links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="{% url 'aboutus' %}">About Us</a></li>
+          <li><a href="{% url 'donateform' %}">Donate</a></li>
+          <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col resources">
+        <h4>Resources</h4>
+        <ul>
+          <li><a href="{% url 'faq' %}">FAQ</a></li>
+          <li><a href="{% url 'blog' %}">Blog</a></li>
+          <li><a href="{% url 'termsconditions' %}">Terms & Conditions</a></li>
+          <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col contact-form" style="max-width:320px">
+        <h4>Have a Question?</h4>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea rows="3" placeholder="Message"></textarea>
+
+      </div>
+    </footer>
+
+    <div class="copyright">
+      Copyright &copy; 2025 | HopeHub
+    </div>
+
+  </div>
+
+</body>
+</html>

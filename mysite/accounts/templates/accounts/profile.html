@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %}My Profile{% endblock %}
+
+{% block content %}
+<div class="container profile-container">
+  <h2>My Profile</h2>
+  <p><strong>Username:</strong> {{ user.username }}</p>
+  <p><strong>Email:</strong> {{ user.email }}</p>
+  <p><strong>Name:</strong> {{ user.name }}</p>
+  <p><strong>Phone:</strong> {{ user.phone }}</p>
+  <p><strong>Address:</strong> {{ user.address }}</p>
+
+  <a href="{% url 'logout' %}" class="btn">Logout</a>
+</div>
+{% endblock %}
