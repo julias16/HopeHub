@@ -11,7 +11,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
   <!-- External CSS -->
-  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ <link rel="stylesheet" href="{% static 'css/style.css'%}">
 </head>
 <body>
 
@@ -19,208 +19,211 @@
     <!-- Header -->
     <header>
       <div class="brand">
-        <a href="{% url 'home' %}"> <img src="../static/image/logo.png" alt="HopeHub Logo"> </a>
+        <img src="../static/image/logo.png" alt="HopeHub Logo">
       </div>
 
       <nav aria-label="Main navigation">
-  <a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'aboutus' %}">About</a>
-  <a href="{% url 'donateform' %}">Donate</a>
-  <a href="{% url 'blog' %}">Blog</a>
-  <a href="{% url 'contactus' %}">Contact</a>
-
-  {% if user.is_authenticated %}
-    <a href="{% url 'profile' %}" class="profile-icon">
-      <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
-    </a>
-  {% else %}
-    <a class="cta" href="{% url 'login' %}">Login/Signup</a>
-  {% endif %}
-</nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'aboutus' %}">About</a>
+        <a href="{% url 'donateform' %}">Donate</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'contactus' %}">Contact</a>
+        <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+      </nav>
 
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
 
-      <!-- Hero Main -->
-      <div class="hero-main">
-        <!-- Left: Text + Button -->
-        <div class="hero-content">
-          <h1>Together We Reduce Waste, Together We Spread Hope</h1>
-          <a class="btn-donate" href="{% url 'donateform' %}">Donate Now!</a>
-        </div>
+  <!-- Hero Main -->
+  <div class="hero-main">
+    <!-- Left: Text + Button -->
+    <div class="hero-content">
+      <h1>Together We Reduce Waste, Together We Spread Hope</h1>
+      <a class="btn-donate" href="{% url 'donateform' %}" >Donate Now!</a>
+    </div>
 
-        <!-- Right: Illustration Image -->
-        <div class="hero-image">
-          <img src="{% static 'image/Blue-Haired Woman Donates to HopeHub.png' %}" alt="Donation Illustration">
-        </div>
-      </div>
+    <!-- Right: Illustration Image -->
+    <div class="hero-image">
+      <img src="../static/image/Blue-Haired Woman Donates to HopeHub.png" alt="Donation Illustration">
+    </div>
+  </div>
 
-      <!-- Bottom: Category Cards -->
-      <div class="hero-categories">
+  <!-- Bottom: Category Cards -->
+  <div class="hero-categories">
 
-        <a href="{% url 'foodfirst' %}" class="cat">
-          <h4>Food</h4>
-          <img src="{% static 'image/Food.png' %}" alt="Food">
-          <p>No one sleeps hungry</p>
-        </a>
+  <a href="{% url 'foodfirst' %}" class="cat">
+    <h4>Food</h4>
+    <img src="../static/image/Food.png" alt="Food">
+    <p>No one sleeps hungry</p>
+  </a>
 
-        <a href="{% url 'clothsfirst' %}" class="cat">
-          <h4>Clothes</h4>
-          <img src="{% static 'image/Clothes.png' %}" alt="Clothes">
-          <p>Dress with Dignity</p>
-        </a>
+  <a href="{% url 'clothsfirst' %}"  class="cat">
+    <h4>Clothes</h4>
+    <img src="../static/image/Clothes.png" alt="Clothes">
+    <p>Dress with Dignity</p>
+  </a>
 
-        <a href="{% url 'furniturefirst' %}" class="cat">
-          <h4>Furniture</h4>
-          <img src="{% static 'image/Furniture.png' %}" alt="Furniture">
-          <p>Comfort for Every Home</p>
-        </a>
+  <a href="{% url 'furniturefirst' %}"  class="cat">
+    <h4>Furniture</h4>
+    <img src="../static/image/Furniture.png" alt="Furniture">
+    <p>Comfort for Every Home</p>
+  </a>
 
-      </div>
-    </section>
+</div>
+
+
+</section>
 
     <!-- How HopeHub Helps -->
-    <section class="features">
-      <h3>How HopeHub Helps?</h3>
-      <p>HopeHub connects donors and receivers of food, clothes, and furniture — making donation simple, fast, and meaningful.</p>
-    </section>
 
-    <div class="feature-grid">
-      <div class="fcard">
-        <div class="ic">⚡</div>
-        <div>
-          <h5>Easy Donation</h5>
-          <p>Post items quickly in seconds</p>
+      <section class="features">
+  <h3>How HopeHub Helps?</h3>
+  <p>HopeHub connects donors and receivers of food, clothes, and furniture — making donation simple, fast, and meaningful.</p>
+</section>
+
+      <div class="feature-grid">
+        <div class="fcard">
+          <div class="ic">⚡</div>
+          <div>
+            <h5>Easy Donation</h5>
+            <p>Post items quickly in seconds</p>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="ic">📍</div>
+          <div>
+            <h5>Location Matching</h5>
+            <p>Find nearby receivers with smart search</p>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="ic">💬</div>
+          <div>
+            <h5>Real-time Communication</h5>
+            <p>Chat directly with donors & receivers</p>
+          </div>
+        </div>
+        <div class="fcard">
+          <div class="ic">🧩</div>
+          <div>
+            <h5>Multi-category Support</h5>
+<p>Food, Clothes & Furniture all in one platform</p>
+          </div>
         </div>
       </div>
-      <div class="fcard">
-        <div class="ic">📍</div>
-        <div>
-          <h5>Location Matching</h5>
-          <p>Find nearby receivers with smart search</p>
-        </div>
-      </div>
-      <div class="fcard">
-        <div class="ic">💬</div>
-        <div>
-          <h5>Real-time Communication</h5>
-          <p>Chat directly with donors & receivers</p>
-        </div>
-      </div>
-      <div class="fcard">
-        <div class="ic">🧩</div>
-        <div>
-          <h5>Multi-category Support</h5>
-          <p>Food, Clothes & Furniture all in one platform</p>
-        </div>
-      </div>
-    </div>
+    </section>
 
     <!-- Stats -->
     <section class="impact" aria-label="Our impact so far">
-      <h3>Our Impact So Far</h3>
-      <div class="impact-grid">
-        <div class="circle">
-          <img src="{% static 'image/fork.png' %}" alt="Food Icon">
-          <strong>500+</strong>
-          <p>Meals Shared</p>
-        </div>
-        <div class="circle">
-          <img src="{% static 'image/dress.png' %}" alt="Clothes Icon">
-          <strong>300+</strong>
-          <p>Clothes Donated</p>
-        </div>
-        <div class="circle">
-          <img src="{% static 'image/sofa.png' %}" alt="Furniture Icon">
-          <strong>100+</strong>
-          <p>Furniture Shared</p>
-        </div>
-      </div>
-    </section>
+  <h3>Our Impact So Far</h3>
+  <div class="impact-grid">
+    <div class="circle">
+      <img src="../static/image/fork.png" alt="Food Icon">
+      <strong>500+</strong>
+      <p>Meals Shared</p>
+    </div>
+    <div class="circle">
+      <img src="../static/image/dress.png" alt="Clothes Icon">
+      <strong>300+</strong>
+      <p>Clothes Donated</p>
+    </div>
+    <div class="circle">
+      <img src="../static/image/sofa.png" alt="Furniture Icon">
+      <strong>100+</strong>
+      <p>Furniture Shared</p>
+    </div>
+  </div>
+</section>
 
     <!-- Testimonials -->
-    <section class="testimonials">
-      <h3>Testimonials & Stories</h3>
-      <div class="testimonial-wrapper">
-        <!-- Testimonial 1 -->
-        <div class="testimonial-box">
-          <div class="quote-icon">“</div>
-          <p class="testimonial-text">Because of HopeHub, I got food for my family in a tough time.</p>
-          <div class="profile">
-            <img src="{% static 'image/man pic.png' %}" alt="Profile Picture">
-            <h2>Rahim Ahmed</h2>
-            <span class="role">Receiver</span>
-          </div>
-        </div>
-
-        <!-- Testimonial 2 -->
-        <div class="testimonial-box">
-          <div class="quote-icon">“</div>
-          <p class="testimonial-text">Donating through HopeHub was easy and fulfilling for me.</p>
-          <div class="profile">
-            <img src="{% static 'image/female pic.jpg' %}" alt="Profile Picture">
-            <h2>Shila Khatun</h2>
-            <span class="role">Donor</span>
-          </div>
-        </div>
+<section class="testimonials">
+  <h3>Testimonials & Stories</h3>
+  <div class="testimonial-wrapper">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-box">
+      <div class="quote-icon">“</div>
+      <p class="testimonial-text">Because of HopeHub, I got food for my family in a tough time.</p>
+      <div class="profile">
+        <img src="../static/image/man%20pic.png" alt="Profile Picture">
+        <h2>Rahim Ahmed</h2>
+        <span class="role">Receiver</span>
       </div>
+    </div>
 
-      <div class="dots">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+    <!-- Testimonial 2 -->
+    <div class="testimonial-box">
+      <div class="quote-icon">“</div>
+      <p class="testimonial-text">Donating through HopeHub was easy and fulfilling for me.</p>
+      <div class="profile">
+        <img src="../static/image/female%20pic.jpg" alt="Profile Picture">
+        <h2>Shila Khatun</h2>
+        <span class="role">Donor</span>
       </div>
-    </section>
+    </div>
+  </div>
+
+  <!-- Dots thakbe puro section er niche -->
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+</section>
+
+
 
     <!-- Footer -->
+   <!-- Footer -->
     <footer>
-      <!-- Column 1: About -->
-      <div class="footer-col">
-        <h4>About</h4>
-        <p>HopeHub helps you donate food, clothes, and furniture to those in need.
-        Join our community to make a real impact.</p>
-        <div class="social-icons">
-          <img src="{% static 'image/facebook.png' %}" alt="Facebook">
-          <img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp">
-          <img src="{% static 'image/gmail.png' %}" alt="Gmail">
-        </div>
-      </div>
-      <!-- Column 2: Quick Links -->
-      <div class="footer-col links">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="{% url 'home' %}">Home</a></li>
-          <li><a href="{% url 'aboutus' %}">About Us</a></li>
-          <li><a href="{% url 'donateform' %}">Donate</a></li>
-          <li><a href="{% url 'contactus' %}">Contact Us</a></li>
-        </ul>
-      </div>
+  <!-- Column 1: About -->
+<div class="footer-col">
+  <h4>About</h4>
+  <p>HopeHub helps you donate food, clothes, and furniture to those in need.
+Join our community to make a real impact.</p>
+  <div class="social-icons">
+    <img src="../static/image/facebook.png" alt="Facebook">
+    <img src="../static/image/whatsapp.png" alt="WhatsApp">
+    <img src="../static/image/gmail.png" alt="Gmail">
+  </div>
+</div>
+  <!-- Column 2: Quick Links -->
+  <div class="footer-col links">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %}">About Us</a></li>
+      <li><a href="{% url 'donateform' %}">Donate</a></li>
+      <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+    </ul>
+  </div>
 
-      <!-- Column 3: Resources -->
-      <div class="footer-col resources">
-        <h4>Resources</h4>
-        <ul>
-          <li><a href="{% url 'faq' %}">FAQ</a></li>
-          <li><a href="{% url 'blog' %}">Blog</a></li>
-          <li><a href="{% url 'termsconditions' %}">Terms & Conditions</a></li>
-          <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
-        </ul>
-      </div>
+  <!-- Column 3: Resources -->
+  <div class="footer-col resources">
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="{% url 'faq' %}">FAQ</a></li>
+      <li><a href="{% url 'blog' %}">Blog</a></li>
+      <li><a href="{% url 'termsconditions' %}">Trams & Conditions</a></li>
+      <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
+    </ul>
+  </div>
 
-      <div class="footer-col contact-form" style="max-width:320px">
+
+      <div class="footer-col contact-form" style="max-width:320px" >
         <h4>Have a Question?</h4>
         <input type="text" placeholder="Name" />
         <input type="email" placeholder="Email" />
         <textarea rows="3" placeholder="Message"></textarea>
-
+        <button >Send</button>
       </div>
     </footer>
 
-    <div class="copyright">
-      Copyright &copy; 2025 | HopeHub
-    </div>
+ <div class="copyright">
+  Copyright &copy; 2025 | HopeHub
+</div>
   </div>
+
 </body>
 </html>

@@ -17,8 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from . import views
-from django.urls import path, include
-from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,12 +26,12 @@ urlpatterns = [
     path('clothsfirst', views.clothsfirst, name='clothsfirst'),
     path('foodfirst', views.foodfirst, name='foodfirst'),
     path('furniturefirst', views.furniturefirst, name='furniturefirst'),
+    path('login', views.login, name='login'),
+    path('signup', views.signup, name='signup'),
     path('donateform', views.donateform, name='donateform'),
     path('blog', views.blog, name='blog'),
     path('faq', views.faq, name='faq'),
     path('termsconditions', views.termsconditions, name='termsconditions'),
     path('privacypolicy', views.privacypolicy, name='privacypolicy'),
     path('donatethanks' , views.massagethanks , name='massagethanks'),
-    path('accounts/', include('accounts.urls')),
-    path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
