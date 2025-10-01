@@ -31,7 +31,6 @@ urlpatterns = [
     path('furniturefirst', views.furniturefirst, name='furniturefirst'),
     path('login', views.login, name='login'),
     path('signup', views.signup, name='signup'),
-    path('donateform', views.donateform, name='donateform'),
     path('blog', views.blog, name='blog'),
     path('faq', views.faq, name='faq'),
     path('termsconditions', views.termsconditions, name='termsconditions'),
@@ -40,6 +39,7 @@ urlpatterns = [
     path('foodreceive', views.foodreceive, name='foodreceive'),
     path('clothsreceive', views.clothsreceive, name='clothsreceive'),
     path('furniturereceive', views.furniturereceive, name='furniturereceive'),
+    path('donations/', include('donations.urls')),
 ]
 
 if settings.DEBUG:

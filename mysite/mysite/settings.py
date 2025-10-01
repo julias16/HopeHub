@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'mysite',
+    'donations',
     'accounts.apps.AccountsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -92,7 +93,11 @@ TEMPLATES = [
 ]
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'accounts/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'accounts/static'),
+                    os.path.join(BASE_DIR, 'donations/static'),
+                    os.path.join(BASE_DIR, 'static'),
+                    ]
+
 
 from pathlib import Path
 

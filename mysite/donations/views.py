@@ -4,13 +4,12 @@ from django.contrib import messages
 from .models import Donation
 
 
-
 @login_required
 def donationform(request):
     if request.method == 'POST':
         donor = request.user
-        category = request.POST.get('item_type')  # template name = item_type
-        item_name = request.POST.get('item_details')  # template er textarea
+        category = request.POST.get('item_type')  # template input name
+        item_name = request.POST.get('item_details')
         item_image = request.FILES.get('file_upload')
         quantity = request.POST.get('quantity')
         address = request.POST.get('address')
@@ -23,8 +22,7 @@ def donationform(request):
             item_image=item_image,
             quantity=quantity,
             address=address,
-            details=item_name,  # same as item_name here
-            delivery_option='Self'  # optional
+            details=item_name,  # optional
         )
 
         # Show thank you message
@@ -34,24 +32,24 @@ def donationform(request):
         if category == 'food':
             return redirect('foodreceive')
         elif category == 'clothes':
-            return redirect('clothesreceive')
+            return redirect('clothsreceive')  # note spelling
         else:
             return redirect('furniturereceive')
 
-    return render(request, 'donationform.html')
+    return render(request, 'donations/donateform.html')
 
 
 # Receive pages
 def foodreceive(request):
     items = Donation.objects.filter(category='food')
-    return render(request, 'foodreceive.html', {'items': items})
+    return render(request, 'donations/foodreceive.html', {'items': items})
 
 
-def clothesreceive(request):
+def clothsreceive(request):
     items = Donation.objects.filter(category='clothes')
-    return render(request, 'clothsreceive.html', {'items': items})
+    return render(request, 'donations/clothsreceive.html', {'items': items})
 
 
 def furniturereceive(request):
     items = Donation.objects.filter(category='furniture')
-    return render(request, 'furniturereceive.html', {'items': items})
+    return render(request, 'donations/furniturereceive.html', {'items': items})

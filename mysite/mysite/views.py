@@ -16,8 +16,6 @@ def login(request):
     return render(request, 'login.html')
 def signup(request):
     return render(request, 'signup.html')
-def donateform(request):
-    return render(request, 'donateform.html')
 def blog(request):
     return render(request, 'blog.html')
 def faq(request):

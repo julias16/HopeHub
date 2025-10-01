@@ -1,0 +1,33 @@
+/* Gallery container */
+.item-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  justify-items: center; /* center items in grid cells */
+}
+
+/* Individual item card */
+.item-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  width: 180px;
+}
+
+/* Image inside card */
+.item-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Item name text */
+.item-card p {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 14px;
+}
