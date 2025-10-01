@@ -4,155 +4,93 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HopeHub</title>
-  <link rel="stylesheet" href="{% static 'css/receive.css'%}">
+  <title>HopeHub - Furniture Donations</title>
+  <link rel="stylesheet" href="{% static 'css/about.css'%}">
 </head>
 <body>
-  <!-- Navbar -->
-  <div class="wrap">
-    <!-- Header -->
-   <header>
-      <div class="brand">
-        <a href="{% url 'home' %}"> <img src="../static/image/logo.png" alt="HopeHub Logo"> </a>
-      </div>
+<div class="wrap">
 
-      <nav aria-label="Main navigation">
-  <a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'aboutus' %}">About</a>
-  <a href="{% url 'donateform' %}">Donate</a>
-  <a href="{% url 'blog' %}">Blog</a>
-  <a href="{% url 'contactus' %}">Contact</a>
+  <header>
+    <div class="brand">
+      <a href="{% url 'home' %}"> <img src="{% static 'image/logo.png' %}" alt="HopeHub Logo"> </a>
+    </div>
+    <nav aria-label="Main navigation">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'aboutus' %}">About</a>
+      <a href="{% url 'donateform' %}">Donate</a>
+      <a href="{% url 'blog' %}">Blog</a>
+      <a href="{% url 'contactus' %}">Contact</a>
+      {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}" class="profile-icon">
+        <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
+      </a>
+      {% else %}
+      <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+      {% endif %}
+    </nav>
+  </header>
 
-  {% if user.is_authenticated %}
-    <a href="{% url 'profile' %}" class="profile-icon">
-      <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
-    </a>
-  {% else %}
-    <a class="cta" href="{% url 'login' %}">Login/Signup</a>
-  {% endif %}
-</nav>
+<section class="item-gallery">
+  {% for item in items %}
+    <div class="item-card">
+      {% if item.item_image %}
+        <img src="{{ item.item_image.url }}" alt="{{ item.item_name }}">
+      {% endif %}
+      <p>{{ item.item_name }}</p>
+    </div>
+  {% empty %}
+    <p>No donations yet.</p>
+  {% endfor %}
+</section>
 
-    </header>
-
-
-  <!-- Food Items -->
-  <section class="food-gallery">
-    <div class="food-card">
-      <a href="details.html?food=biriyani" class="food-card">
-      <img src="biriyani.jpg" alt="Biriyani">
-      <p>Biriyani</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=fish%20curry" class="food-card">
-      <img src="fish%20curry.jpg" alt="Fish Curry">
-      <p>Fish Curry</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=khicuri" class="food-card">
-      <img src="khicuri.jpg" alt="Khichuri">
-      <p>Khichuri</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=rice" class="food-card">
-      <img src="rice.png" alt="Rice">
-      <p>Rice</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=egg%20curry" class="food-card">
-      <img src="egg%20curry.jpg" alt="Egg Curry">
-      <p>Egg Curry</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=shami%20kabab" class="food-card">
-      <img src="shami%20kabab.jpg" alt="shami kabab">
-      <p>Shami Kabab</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=fish%20curry%201" class="food-card">
-      <img src="fish%20curry%201.jpg" alt="Fish Curry">
-      <p>Fish Curry</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=pitha" class="food-card">
-      <img src="pitha.jpg" alt="Pitha">
-      <p>Pitha</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=iftar" class="food-card">
-      <img src="iftar.jpg" alt="Iftar">
-      <p>Iftar</p>
-        </a>
-    </div>
-    <div class="food-card">
-      <a href="details.html?food=parata" class="food-card">
-      <img src="parata.jpg" alt="Parata">
-      <p>Parata</p>
-        </a>
-    </div>
-  </section>
-
-  <div class="view-btn">
-    <button>View All</button>
-  </div>
 
   <!-- Footer -->
-   <!-- Footer -->
-    <footer>
-  <!-- Column 1: About -->
-<div class="footer-col">
-  <h4>About</h4>
-  <p>HopeHub helps you donate food, clothes, and furniture to those in need.
-Join our community to make a real impact.</p>
-  <div class="social-icons">
-    <img src="facebook.png" alt="Facebook">
-    <img src="whatsapp.png" alt="WhatsApp">
-    <img src="gmail.png" alt="Gmail">
-  </div>
-</div>
-  <!-- Column 2: Quick Links -->
-  <div class="footer-col links">
-    <h4>Quick Links</h4>
-    <ul>
-      <li>Home</li>
-      <li>About</li>
-      <li>Donate</li>
-      <li>Contact</li>
-    </ul>
-  </div>
-
-  <!-- Column 3: Resources -->
-  <div class="footer-col resources">
-    <h4>Resources</h4>
-    <ul>
-      <li>FAQ</li>
-      <li>Blog</li>
-      <li>Terms & Condition</li>
-      <li>Privacy Policy</li>
-    </ul>
-  </div>
-
-
-      <div class="footer-col contact-form" style="max-width:320px">
-        <h4>Have a Question?</h4>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <textarea rows="3" placeholder="Message"></textarea>
-        <button>Send</button>
+  <footer>
+    <div class="footer-col">
+      <h4>About</h4>
+      <p>HopeHub helps you donate food, clothes, and furniture to those in need.
+      Join our community to make a real impact.</p>
+      <div class="social-icons">
+        <img src="{% static 'image/facebook.png' %}" alt="Facebook">
+        <img src="{% static 'image/whatsapp.png' %}" alt="WhatsApp">
+        <img src="{% static 'image/gmail.png' %}" alt="Gmail">
       </div>
-    </footer>
+    </div>
 
- <div class="copyright">
-  Copyright &copy; 2025 | HopeHub
-</div>
+    <div class="footer-col links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'aboutus' %}">About Us</a></li>
+        <li><a href="{% url 'donateform' %}">Donate</a></li>
+        <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col resources">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="{% url 'faq' %}">FAQ</a></li>
+        <li><a href="{% url 'blog' %}">Blog</a></li>
+        <li><a href="{% url 'termsconditions' %}">Terms & Conditions</a></li>
+        <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col contact-form" style="max-width:320px">
+      <h4>Have a Question?</h4>
+      <input type="text" placeholder="Name" />
+      <input type="email" placeholder="Email" />
+      <textarea rows="3" placeholder="Message"></textarea>
+      <button>Send</button>
+    </div>
+  </footer>
+
+  <div class="copyright">
+    Copyright &copy; 2025 | HopeHub
   </div>
 
+</div>
 </body>
 </html>
+

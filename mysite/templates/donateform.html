@@ -54,10 +54,11 @@
     <form class="donation-form" method="POST" enctype="multipart/form-data">
       {% csrf_token %}
       {% if messages %}
-        {% for message in messages %}
-          <p style="color:green;">{{ message }}</p>
-        {% endfor %}
-      {% endif %}
+  {% for message in messages %}
+    <p style="color:green; text-align:center;">{{ message }}</p>
+  {% endfor %}
+{% endif %}
+
 
       <h1>Donation Form</h1>
       <input type="text" name="name" placeholder="Full Name" required>
@@ -90,6 +91,56 @@
         <li>✔ Reduce waste and help the environment</li>
       </ul>
     </div>
+    <footer>
+  <!-- Column 1: About -->
+<div class="footer-col">
+  <h4>About</h4>
+  <p>HopeHub helps you donate food, clothes, and furniture to those in need.
+Join our community to make a real impact.</p>
+  <div class="social-icons">
+    <img src="../static/image/facebook.png" alt="Facebook">
+    <img src="../static/image/whatsapp.png" alt="WhatsApp">
+    <img src="../static/image/gmail.png" alt="Gmail">
+  </div>
+</div>
+  <!-- Column 2: Quick Links -->
+  <div class="footer-col links">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="{% url 'home' %}">Home</a></li>
+      <li><a href="{% url 'aboutus' %}">About Us</a></li>
+      <li><a href="{% url 'donateform' %}">Donate</a></li>
+      <li><a href="{% url 'contactus' %}">Contact Us</a></li>
+    </ul>
+  </div>
+
+  <!-- Column 3: Resources -->
+  <div class="footer-col resources">
+    <h4>Resources</h4>
+    <ul>
+      <li><a href="{% url 'faq' %}">FAQ</a></li>
+      <li><a href="{% url 'blog' %}">Blog</a></li>
+      <li><a href="{% url 'termsconditions' %}">Trams & Conditions</a></li>
+      <li><a href="{% url 'privacypolicy' %}">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+
+      <div class="footer-col contact-form" style="max-width:320px">
+        <h4>Have a Question?</h4>
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
+        <textarea rows="3" placeholder="Message"></textarea>
+        <button>Send</button>
+      </div>
+    </footer>
+
+ <div class="copyright">
+  Copyright &copy; 2025 | HopeHub
+</div>
   </div>
 </body>
 </html>
+  </div>
+
+
