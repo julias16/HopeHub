@@ -9,7 +9,7 @@ def donationform(request):
     if request.method == 'POST':
         donor = request.user
         category = request.POST.get('item_type')  # template input name
-        item_name = request.POST.get('item_details')
+        item_name = request.POST.get('item_name')
         item_image = request.FILES.get('file_upload')
         quantity = request.POST.get('quantity')
         address = request.POST.get('address')
@@ -22,7 +22,6 @@ def donationform(request):
             item_image=item_image,
             quantity=quantity,
             address=address,
-            details=item_name,  # optional
         )
 
         # Show thank you message
@@ -53,3 +52,4 @@ def clothsreceive(request):
 def furniturereceive(request):
     items = Donation.objects.filter(category='furniture')
     return render(request, 'donations/furniturereceive.html', {'items': items})
+
