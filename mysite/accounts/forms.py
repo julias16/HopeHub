@@ -59,3 +59,32 @@ class SignUpForm(forms.ModelForm):
 class LoginForm(forms.Form):
     identifier = forms.CharField(label='Username / Email / Phone')
     password = forms.CharField(widget=forms.PasswordInput)
+
+
+from django import forms
+from django.contrib.auth import get_user_model
+
+User = get_user_model()
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ['name', 'email', 'phone', 'address']
+        widgets = {
+            'name': forms.TextInput(attrs={'placeholder': 'Enter your name'}),
+            'email': forms.EmailInput(attrs={'placeholder': 'Enter your email'}),
+            'phone': forms.TextInput(attrs={'placeholder': 'Enter your phone'}),
+            'address': forms.TextInput(attrs={'placeholder': 'Enter your address'}),
+        }
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email')
+        if User.objects.exclude(pk=self.instance.pk).filter(email=email).exists():
+            raise forms.ValidationError("This email is already in use.")
+        return email
+
+    def clean_phone(self):
+        phone = self.cleaned_data.get('phone')
+        if User.objects.exclude(pk=self.instance.pk).filter(phone=phone).exists():
+            raise forms.ValidationError("This phone number is already in use.")
+        return phone

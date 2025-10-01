@@ -3,30 +3,22 @@
 
 {% block content %}
 <style>
-/* Profile Page Container */
 .profile-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* vertically center */
-  align-items: center;       /* horizontally center */
-  max-width: 400px;
-  margin: 0 auto;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  max-width: 500px;
+  margin: 20px auto;
   background: #fff;
   padding: 30px 40px;
   border-radius: 16px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-container:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.18);
 }
 
-/* Profile Heading */
 .profile-container h2 {
   font-size: 24px;
   font-weight: 700;
@@ -34,45 +26,140 @@
   margin-bottom: 20px;
 }
 
-/* Profile Details */
-.profile-container p {
-  margin: 8px 0;
+.profile-info p {
   font-size: 15px;
-  color: #444;
+  margin: 8px 0;
 }
 
-.profile-container strong {
+.profile-info strong {
   color: #000;
 }
 
-/* Logout Button */
 .profile-container .btn {
-  display: inline-block;
-  margin-top: 20px;
-  background: #8b1e1e;
-  color: #fff;
-  text-decoration: none;
+  margin-top: 15px;
   padding: 10px 20px;
   border-radius: 8px;
+  border: none;
   cursor: pointer;
   font-size: 15px;
-  transition: background 0.3s ease, transform 0.2s ease;
+  transition: 0.3s;
 }
 
-.profile-container .btn:hover {
-  background: #6b1d1d;
-  transform: scale(1.05);
+.update-btn {
+  background: #0077cc;
+  color: #fff;
+}
+
+.update-btn:hover {
+  background: #005fa3;
+}
+
+.save-btn {
+  background: #28a745;
+  color: #fff;
+}
+
+.save-btn:hover {
+  background: #1e7e34;
+}
+
+.cancel-btn {
+  background: #dc3545;
+  color: #fff;
+}
+
+.cancel-btn:hover {
+  background: #a71d2a;
+}
+
+input.edit-input {
+  display: none;
+  padding: 8px;
+  margin-left: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 200px;
+}
+.message {
+  color: green;
+  margin-bottom: 10px;
 }
 </style>
 
 <div class="container profile-container">
   <h2>Profile Details</h2>
-  <p><strong>Username:</strong> {{ user.username }}</p>
-  <p><strong>Email:</strong> {{ user.email }}</p>
-  <p><strong>Name:</strong> {{ user.name }}</p>
-  <p><strong>Phone:</strong> {{ user.phone }}</p>
-  <p><strong>Address:</strong> {{ user.address }}</p>
 
-  <a href="{% url 'logout' %}" class="btn">Logout</a>
+  {% if messages %}
+    {% for message in messages %}
+      <div class="message">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+
+  <div class="profile-info">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> <span class="text-email">{{ user.email }}</span>
+      <input type="text" class="edit-input" id="email-input" value="{{ user.email }}">
+    </p>
+    <p><strong>Name:</strong> <span class="text-name">{{ user.name }}</span>
+      <input type="text" class="edit-input" id="name-input" value="{{ user.name }}">
+    </p>
+    <p><strong>Phone:</strong> <span class="text-phone">{{ user.phone }}</span>
+      <input type="text" class="edit-input" id="phone-input" value="{{ user.phone }}">
+    </p>
+    <p><strong>Address:</strong> <span class="text-address">{{ user.address }}</span>
+      <input type="text" class="edit-input" id="address-input" value="{{ user.address }}">
+    </p>
+  </div>
+
+  <button class="btn update-btn" id="updateBtn">Update Profile</button>
+
+  <form method="POST" id="updateForm" style="display:none; margin-top:15px;">
+    {% csrf_token %}
+    <input type="hidden" name="name" id="form-name">
+    <input type="hidden" name="email" id="form-email">
+    <input type="hidden" name="phone" id="form-phone">
+    <input type="hidden" name="address" id="form-address">
+    <button type="submit" class="btn save-btn">Save</button>
+    <button type="button" class="btn cancel-btn" id="cancelBtn">Cancel</button>
+  </form>
+
+  <a href="{% url 'logout' %}" class="btn" style="margin-top:10px; background:#555;">Logout</a>
 </div>
+
+<script>
+const updateBtn = document.getElementById('updateBtn');
+const cancelBtn = document.getElementById('cancelBtn');
+const updateForm = document.getElementById('updateForm');
+
+updateBtn.addEventListener('click', () => {
+  document.querySelectorAll('.edit-input').forEach(input => {
+    input.style.display = 'inline-block';
+  });
+  document.querySelectorAll('.profile-info span').forEach(span => {
+    span.style.display = 'none';
+  });
+  updateBtn.style.display = 'none';
+  updateForm.style.display = 'block';
+});
+
+// Cancel button
+cancelBtn.addEventListener('click', () => {
+  document.querySelectorAll('.edit-input').forEach(input => {
+    input.style.display = 'none';
+  });
+  document.querySelectorAll('.profile-info span').forEach(span => {
+    span.style.display = 'inline';
+  });
+  updateBtn.style.display = 'inline-block';
+  updateForm.style.display = 'none';
+});
+
+// Fill hidden form inputs before submit
+updateForm.addEventListener('submit', () => {
+  document.getElementById('form-name').value = document.getElementById('name-input').value;
+  document.getElementById('form-email').value = document.getElementById('email-input').value;
+  document.getElementById('form-phone').value = document.getElementById('phone-input').value;
+  document.getElementById('form-address').value = document.getElementById('address-input').value;
+});
+</script>
 {% endblock %}

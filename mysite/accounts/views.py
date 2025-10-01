@@ -72,3 +72,47 @@ def profile_view(request):
 def logout_view(request):
     logout(request)
     return redirect('login')
+
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+from .forms import ProfileUpdateForm
+
+@login_required
+def profile_view(request):
+    user = request.user
+
+    if request.method == 'POST':
+        form = ProfileUpdateForm(request.POST, instance=user)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Profile updated successfully.")
+            return redirect('profile')
+    else:
+        form = ProfileUpdateForm(instance=user)
+
+    return render(request, 'accounts/profile.html', {'form': form})
+
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib import messages
+
+@login_required(login_url='login')
+def donate_form_view(request):
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        email_or_phone = request.POST.get('email_or_phone')
+        address = request.POST.get('address')
+        item_type = request.POST.get('item_type')
+        quantity = request.POST.get('quantity')
+        item_details = request.POST.get('item_details')
+        delivery_option = request.POST.get('delivery_option')
+        file_upload = request.FILES.get('file_upload')
+
+        # Save data logic here
+        messages.success(request, "Thank you! Your donation request has been received.")
+        return redirect('donateform')
+
+    return render(request, 'accounts/donation_form.html')
+

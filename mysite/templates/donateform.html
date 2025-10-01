@@ -1,6 +1,6 @@
 {% load static %}
 <!doctype html>
-<html lang="bn">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -10,72 +10,75 @@
 </head>
 <body>
 
-  <!-- Same Navbar reuse -->
   <div class="wrap">
-  <header>
+    <!-- Navbar -->
+    <header>
       <div class="brand">
-        <a href="{% url 'home' %}"> <img src="../static/image/logo.png" alt="HopeHub Logo"> </a>
+        <a href="{% url 'home' %}"> <img src="{% static 'image/logo.png' %}" alt="HopeHub Logo"> </a>
       </div>
 
       <nav aria-label="Main navigation">
-  <a href="{% url 'home' %}">Home</a>
-  <a href="{% url 'aboutus' %}">About</a>
-  <a href="{% url 'donateform' %}">Donate</a>
-  <a href="{% url 'blog' %}">Blog</a>
-  <a href="{% url 'contactus' %}">Contact</a>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'aboutus' %}">About</a>
+        <a href="{% url 'donateform' %}">Donate</a>
+        <a href="{% url 'blog' %}">Blog</a>
+        <a href="{% url 'contactus' %}">Contact</a>
 
-  {% if user.is_authenticated %}
-    <a href="{% url 'profile' %}" class="profile-icon">
-      <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
-    </a>
-  {% else %}
-    <a class="cta" href="{% url 'login' %}">Login/Signup</a>
-  {% endif %}
-</nav>
-
+        {% if user.is_authenticated %}
+          <a href="{% url 'profile' %}" class="profile-icon">
+            <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
+          </a>
+        {% else %}
+          <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+        {% endif %}
+      </nav>
     </header>
 
-  <!-- Donation Section -->
-  <section class="donation-section">
-    <div class="donation-text">
-      <h1>Your Donation Can Change Lives</h1>
-      <p>Choose what you want to donate and spread hope</p>
-    </div>
-        <div class="donation-image">
-      <img src="../static/image/donation.jpg" alt="Donation Image">
-    </div>
-</section>
-    <form class="donation-form">
+
+    <!-- Donation Section -->
+    <section class="donation-section">
+      <div class="donation-text">
+        <h1>Your Donation Can Change Lives</h1>
+        <p>Choose what you want to donate and spread hope</p>
+      </div>
+      <div class="donation-image">
+        <img src="{% static 'image/donation.jpg' %}" alt="Donation Image">
+      </div>
+    </section>
+
+     {% if not user.is_authenticated %}
+<p style="color:red; text-align:center;">Please login first to donate!</p>
+{% endif %}
+
+    <!-- Donation Form -->
+    <form class="donation-form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% if messages %}
+        {% for message in messages %}
+          <p style="color:green;">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+
       <h1>Donation Form</h1>
-      <input type="text" placeholder="Full Name" required>
-      <input type="text" placeholder="Email / Phone" required>
-      <input type="text" placeholder="Address / Location" required>
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="text" name="email_or_phone" placeholder="Email / Phone" required>
+      <input type="text" name="address" placeholder="Address / Location" required>
 
       <div class="form-row">
-        <select required>
+        <select name="item_type" required>
           <option value="">Item (Food / Clothes / Furniture)</option>
           <option value="food">🍴 Food</option>
           <option value="clothes">👕 Clothes</option>
           <option value="furniture">🛋️ Furniture</option>
         </select>
-        <input type="number" placeholder="Quantity" required>
+        <input type="number" name="quantity" placeholder="Quantity" required>
       </div>
-        <div class="item-radio-row">
-  <textarea placeholder="Item Details (Food type, Clothes Size, Furniture condition)" required></textarea>
 
-  <div class="radio-group">
-    <label>
-      <input type="radio" name="delivery" value="dropoff"> Immediate drop-off
-    </label>
-    <label>
-      <input type="radio" name="delivery" value="pickup"> Pickup request
-    </label>
-  </div>
-</div>
-
-      <input type="file">
+      <textarea name="item_details" placeholder="Item Details (Food type, Clothes Size, Furniture condition)" required></textarea>
 
 
+
+      <input type="file" name="file_upload">
 
       <button type="submit" class="donate-btn">Donate Now</button>
     </form>
@@ -87,7 +90,6 @@
         <li>✔ Reduce waste and help the environment</li>
       </ul>
     </div>
-
   </div>
 </body>
 </html>
