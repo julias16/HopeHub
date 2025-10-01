@@ -26,3 +26,10 @@ def privacypolicy(request):
     return render(request, 'privacypolicy.html')
 def termsconditions(request):
     return render(request, 'termsconditions.html')
+def foodreceive(request):
+    return render(request, 'foodreceive.html')
+def clothsreceive(request):
+    return render(request, 'clothsreceive.html')
+def furniturereceive(request):
+    return render(request, 'furniturereceive.html')
+

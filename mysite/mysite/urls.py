@@ -35,4 +35,7 @@ urlpatterns = [
     path('termsconditions', views.termsconditions, name='termsconditions'),
     path('privacypolicy', views.privacypolicy, name='privacypolicy'),
     path('accounts/', include('accounts.urls')),
+path('foodreceive', views.foodreceive, name='foodreceive'),
+path('clothsreceive', views.clothsreceive, name='clothsreceive'),
+path('furniturereceive', views.furniturereceive, name='furniturereceive'),
 ]
