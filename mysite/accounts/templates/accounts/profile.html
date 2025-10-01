@@ -2,8 +2,71 @@
 {% block title %}My Profile{% endblock %}
 
 {% block content %}
+<style>
+/* Profile Page Container */
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* vertically center */
+  align-items: center;       /* horizontally center */
+  max-width: 400px;
+  margin: 0 auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background: #fff;
+  padding: 30px 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.18);
+}
+
+/* Profile Heading */
+.profile-container h2 {
+  font-size: 24px;
+  font-weight: 700;
+  color: #6b1d1d;
+  margin-bottom: 20px;
+}
+
+/* Profile Details */
+.profile-container p {
+  margin: 8px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.profile-container strong {
+  color: #000;
+}
+
+/* Logout Button */
+.profile-container .btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #8b1e1e;
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.profile-container .btn:hover {
+  background: #6b1d1d;
+  transform: scale(1.05);
+}
+</style>
+
 <div class="container profile-container">
-  <h2>My Profile</h2>
+  <h2>Profile Details</h2>
   <p><strong>Username:</strong> {{ user.username }}</p>
   <p><strong>Email:</strong> {{ user.email }}</p>
   <p><strong>Name:</strong> {{ user.name }}</p>

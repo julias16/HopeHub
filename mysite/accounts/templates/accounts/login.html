@@ -6,27 +6,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
   <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+  <style>
+    /* Error message style */
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
   <div class="container login-container">
     <h2>Login</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="error-message">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
     <form method="POST">
       {% csrf_token %}
       {{ form.non_field_errors }}
 
-      <div class="form-group">
-        {{ form.identifier.errors }}
-        <input type="text" name="identifier" placeholder="Username / Email / Phone" value="{{ form.identifier.value|default_if_none:'' }}">
-      </div>
+      <input id="identifier" type="text" name="identifier" placeholder="Username / Email / Phone" value="{{ form.identifier.value|default_if_none:'' }}">
+      {{ form.identifier.errors }}
 
-      <div class="form-group">
-        {{ form.password.errors }}
-        <input type="password" name="password" placeholder="Password">
-      </div>
+      <input id="password" type="password" name="password" placeholder="Password">
+      {{ form.password.errors }}
 
-      <button type="submit" class="btn">Log in</button>
+      <button type="submit" class="btn">Login</button>
 
-      <p class="switch-text">Don’t have an account? <a href="{% url 'signup' %}">Sign up</a></p>
+      <p class="switch-text">Don't have an account? <a href="{% url 'signup' %}">Sign up</a></p>
     </form>
   </div>
 </body>

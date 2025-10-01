@@ -44,8 +44,8 @@ INSTALLED_APPS = [
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
 AUTHENTICATION_BACKENDS = [
-    'accounts.backends.CustomBackend',  # আমাদের custom backend
-    'django.contrib.auth.backends.ModelBackend',  # default
+    'accounts.backends.CustomBackend',
+    'django.contrib.auth.backends.ModelBackend',
 ]
 
 

@@ -1,9 +1,12 @@
+# mysite/urls.py
+from django.contrib import admin
 from django.urls import path
-from .views import signup_view, login_view, profile_view, logout_view
+from . import views
 
 urlpatterns = [
-    path('signup/', signup_view, name='signup'),
-    path('login/', login_view, name='login'),
-    path('profile/', profile_view, name='profile'),
-    path('logout/', logout_view, name='logout'),
+    path("admin/", admin.site.urls),
+    path("login/", views.login_view, name="login"),
+    path("signup/", views.signup_view, name="signup"),
+    path("logout/", views.logout_view, name="logout"),
+    path("profile/", views.profile_view, name="profile"),
 ]

@@ -6,48 +6,49 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sign Up</title>
   <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+  <style>
+    .error-message {
+      color: red;
+      font-size: 14px;
+      margin-bottom: 10px;
+      text-align: left;
+    }
+  </style>
 </head>
 <body>
   <div class="container signup-container">
-    <h2>Create an account</h2>
+    <h2>Create an Account</h2>
+
+    {% if messages %}
+      {% for message in messages %}
+        <div class="error-message">{{ message }}</div>
+      {% endfor %}
+    {% endif %}
+
     <form method="POST">
       {% csrf_token %}
       {{ form.non_field_errors }}
 
-      <div class="form-group">
-        {{ form.name.errors }}
-        <input type="text" name="name" placeholder="Enter Your Name" value="{{ form.name.value|default_if_none:'' }}">
-      </div>
+      <input id="name" type="text" name="name" placeholder="Enter Your Name" value="{{ form.name.value|default_if_none:'' }}">
+      {{ form.name.errors }}
 
-      <div class="form-group">
-        {{ form.username.errors }}
-        <input type="text" name="username" placeholder="Enter Your Username" value="{{ form.username.value|default_if_none:'' }}">
-      </div>
+      <input id="username" type="text" name="username" placeholder="Enter Your Username" value="{{ form.username.value|default_if_none:'' }}">
+      {{ form.username.errors }}
 
-      <div class="form-group">
-        {{ form.email.errors }}
-        <input type="email" name="email" placeholder="Enter Your Email" value="{{ form.email.value|default_if_none:'' }}">
-      </div>
+      <input id="email" type="email" name="email" placeholder="Enter Your Email" value="{{ form.email.value|default_if_none:'' }}">
+      {{ form.email.errors }}
 
-      <div class="form-group">
-        {{ form.phone.errors }}
-        <input type="text" name="phone" placeholder="Enter Your Phone" value="{{ form.phone.value|default_if_none:'' }}">
-      </div>
+      <input id="phone" type="text" name="phone" placeholder="Enter Your Phone Number" value="{{ form.phone.value|default_if_none:'' }}">
+      {{ form.phone.errors }}
 
-      <div class="form-group">
-        {{ form.address.errors }}
-        <input type="text" name="address" placeholder="Enter Your Address" value="{{ form.address.value|default_if_none:'' }}">
-      </div>
+      <input id="address" type="text" name="address" placeholder="Enter Your Address" value="{{ form.address.value|default_if_none:'' }}">
+      {{ form.address.errors }}
 
-      <div class="form-group">
-        {{ form.password1.errors }}
-        <input type="password" name="password1" placeholder="Enter Your Password">
-      </div>
+      <input id="password1" type="password" name="password1" placeholder="Enter Your Password">
+      {{ form.password1.errors }}
 
-      <div class="form-group">
-        {{ form.password2.errors }}
-        <input type="password" name="password2" placeholder="Retype Password">
-      </div>
+      <input id="password2" type="password" name="password2" placeholder="Retype Password">
+      {{ form.password2.errors }}
 
       <button type="submit" class="btn">Sign Up</button>
 
