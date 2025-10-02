@@ -21,3 +21,23 @@ class Donation(models.Model):
 
     def __str__(self):
         return f"{self.item_name} ({self.category}) by {self.donor.username}"
+
+class Item(models.Model):
+    item_name = models.CharField(max_length=200)
+    item_image = models.ImageField(upload_to='items/')
+    donor = models.ForeignKey(User, on_delete=models.CASCADE)
+    donor_phone = models.CharField(max_length=20)
+    donor_address = models.TextField()
+
+    def __str__(self):
+        return self.item_name
+
+# Optional: Chat model
+class Chat(models.Model):
+    item = models.ForeignKey(Item, on_delete=models.CASCADE, related_name='chats')
+    sender = models.ForeignKey(User, on_delete=models.CASCADE)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.sender.username}: {self.message[:20]}"

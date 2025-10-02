@@ -40,6 +40,7 @@ urlpatterns = [
     path('clothsreceive', views.clothsreceive, name='clothsreceive'),
     path('furniturereceive', views.furniturereceive, name='furniturereceive'),
     path('donations/', include('donations.urls')),
+
 ]
 
 if settings.DEBUG:

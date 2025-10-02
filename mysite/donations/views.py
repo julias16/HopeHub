@@ -3,7 +3,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import Donation
 
-
+from django.shortcuts import render, get_object_or_404
+from .models import Item
 @login_required
 def donationform(request):
     if request.method == 'POST':
@@ -52,4 +53,26 @@ def clothsreceive(request):
 def furniturereceive(request):
     items = Donation.objects.filter(category='furniture')
     return render(request, 'donations/furniturereceive.html', {'items': items})
+
+
+def item_detail(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    chats = item.chats.all().order_by('timestamp')  # chat history
+    context = {
+        'item': item,
+        'donor': item.donor,
+        'chats': chats,
+    }
+    return render(request, 'donations/item_detail.html', context)
+
+
+@login_required
+def send_message(request, item_id):
+    item = get_object_or_404(Item, id=item_id)
+    if request.method == "POST":
+        msg_text = request.POST.get('message')
+        if msg_text:
+            Chat.objects.create(item=item, sender=request.user, message=msg_text)
+            messages.success(request, "Message sent!")
+    return redirect('item_detail', item_id=item_id)
 
