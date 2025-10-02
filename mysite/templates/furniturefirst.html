@@ -94,11 +94,20 @@ Join our community to make a real impact.</p>
 
 
       <div class="footer-col contact-form" style="max-width:320px">
-        <h4>Have a Question?</h4>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
-        <textarea rows="3" placeholder="Message"></textarea>
-        <button>Send</button>
+        <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="0c52a8e4-1563-4ef6-b05d-d0d0743c3349">
+
+              <label>Name</label>
+              <input type="text" name="name" placeholder="Your Name">
+
+              <label>Email</label>
+              <input type="email" name="email" placeholder="Your Email">
+
+              <label>Message</label>
+              <textarea name="message" placeholder="Write your message"></textarea>
+
+              <button type="submit">Send Message</button>
+          </form>
       </div>
     </footer>
 
