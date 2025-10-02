@@ -42,7 +42,9 @@
           <p>Have questions or need more information?<br>
              We'd love to hear from you!</p>
 
-          <form class="contact-form" action="{% url 'login' %}">
+          <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+              <input type="hidden" name="access_key" value="0c52a8e4-1563-4ef6-b05d-d0d0743c3349">
+
               <label>Name</label>
               <input type="text" name="name" placeholder="Your Name">
 
