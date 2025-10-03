@@ -9,20 +9,21 @@ from .models import Item
 def donationform(request):
     if request.method == 'POST':
         donor = request.user
-        category = request.POST.get('item_type')  # template input name
         item_name = request.POST.get('item_name')
         item_image = request.FILES.get('file_upload')
+        category = request.POST.get('item_type')
         quantity = request.POST.get('quantity')
-        address = request.POST.get('address')
+        donor_phone = request.POST.get('donor_phone')
+        donor_address = request.POST.get('donor_address')
 
-        # Create donation
         Donation.objects.create(
             donor=donor,
-            category=category,
             item_name=item_name,
             item_image=item_image,
+            category=category,
             quantity=quantity,
-            address=address,
+            donor_phone=donor_phone,
+            donor_address=donor_address,
         )
 
         # Show thank you message
@@ -56,14 +57,13 @@ def furniturereceive(request):
 
 
 def item_detail(request, item_id):
-    item = get_object_or_404(Item, id=item_id)
-    chats = item.chats.all().order_by('timestamp')  # chat history
+    item = get_object_or_404(Donation, id=item_id)
     context = {
         'item': item,
         'donor': item.donor,
-        'chats': chats,
     }
     return render(request, 'donations/item_detail.html', context)
+
 
 
 @login_required
