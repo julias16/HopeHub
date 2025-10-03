@@ -30,7 +30,7 @@
       {% csrf_token %}
       {{ form.non_field_errors }}
 
-      <input id="identifier" type="text" name="identifier" placeholder="Username / Email / Phone" value="{{ form.identifier.value|default_if_none:'' }}">
+      <input id="identifier" type="text" name="identifier" placeholder="Username" value="{{ form.identifier.value|default_if_none:'' }}">
       {{ form.identifier.errors }}
 
       <input id="password" type="password" name="password" placeholder="Password">
