@@ -6,8 +6,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 import time
 
-path = r"C:/Users/DELL/Downloads/chromedriver-win32/chromedriver.exe"
-driver = webdriver.Chrome(service=Service(path))
+path= "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+driver=webdriver.Chrome(service=Service(path))
 driver.get('http://127.0.0.1:8000/accounts/login/')
 driver.set_window_size(1120, 1000)
 
@@ -15,12 +15,12 @@ try:
     identifier_field = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "identifier"))
     )
-    identifier_field.send_keys("julias16")
+    identifier_field.send_keys("mohona")
 
     password_field = WebDriverWait(driver, 10).until(
         EC.presence_of_element_located((By.ID, "password"))
     )
-    password_field.send_keys("julias54726")
+    password_field.send_keys("123")
 
     login_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.CLASS_NAME, "btn"))
