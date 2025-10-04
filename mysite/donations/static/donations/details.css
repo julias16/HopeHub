@@ -1,0 +1,275 @@
+:root{
+  --green: #05533f;
+  --green-dark: #076b25;
+  --accent:#f1fdf6;
+  --muted: #ffffff;
+  --soft:#eafdf3;
+  --radius:14px;
+  --shadow: 0 6px 20px rgba(16,42,30,0.08);
+  font-family: "Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+body, h1, h2, h3, h4, h5, h6, input, textarea, button, p {
+    font-family: 'Inria Sans', sans-serif;
+}
+body{
+  margin:0;
+  background: #ffffff;
+  color:#133;
+  line-height:1.4;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{
+  max-width: 1440px;
+  width: 100%;
+  margin:28px auto;
+  padding:0 20px;
+}
+
+/* Header */
+header{
+  width:100%;
+  height:100px;
+  background:white;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand img{
+  width:180px;
+  height:auto;
+}
+nav{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  font-weight:600;
+  margin-left:auto;
+}
+.cta {
+  background: var(--green);
+  color: white;
+  padding: 8px 14px;
+  border-radius:25px;
+  border:2px solid black;
+  font-weight:700;
+  transition: background 0.3s;
+}
+.cta:hover{
+  background: var(--green-dark);
+}
+
+
+/* Item Section */
+.item-section {
+  padding: 30px 60px;
+}
+
+.item-title {
+  text-align: center;
+  color: #04764b;
+  margin-bottom: 25px;
+}
+
+.item-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center; /* vertical center করবে */
+}
+
+.item-image img {
+    width: 480px;
+  height: 450px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border-radius: 15px;
+}
+
+.item-info {
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  justify-content: center; /* donor box + chat কে মাঝখানে নামাবে */
+}
+
+.details-box {
+  background: #f2f2f2;
+  padding: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.details-box h3 {
+  margin-bottom: 8px;
+}
+
+.details-box ul {
+  list-style: disc;
+  margin-left: 20px;
+  color: #333;
+}
+
+.donor-box {
+  background: #d8f5e4;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 15px; /* text আর image এর মধ্যে gap */
+  box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+.donor-pic {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;   /* circle করে দিবে */
+  object-fit: cover;    /* image distort হবে না */
+  border: 2px solid var(--green); /* চারপাশে সুন্দর border */
+}
+
+.donor-info {
+  flex: 1;
+  font-size: 15px;
+  line-height: 1.6;
+}
+.donor-info p {
+  font-size: 15px;   /* লেখার সাইজ বড় */
+  margin: 6px 0;
+  font-weight: 500;
+}
+.donor-info p strong {
+  font-size: 19px;   /* নাম আরও বড় */
+  font-weight: 700;
+}
+
+
+.chat-btn {
+  background: #05533f;
+   margin-top: 20px;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: 0.3s;
+   box-shadow: 0 0 25px rgba(0,0,0,0.6);
+}
+
+.chat-btn:hover {
+  background: #04764b;
+}
+
+/* Similar Items */
+.similar-section {
+  margin-top: 40px;
+}
+
+.similar-section h3 {
+  margin-bottom: 15px;
+}
+
+.similar-items {
+  display: flex;
+  gap: 15px;
+}
+
+
+.similar-card img {
+  width: 150px;
+  height: 130px;
+  border-radius: 6px;
+  object-fit: cover;
+  border: 2px solid black;
+}
+
+.similar-card p {
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.similar-card:hover {
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background: #C6FFE2;
+  padding: 24px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  border-radius: 12px;
+}
+
+footer .footer-col {
+  flex: 1 1 200px;
+}
+
+footer .footer-col h4 {
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #000;
+}
+
+footer .footer-col p {
+  font-weight: 400;
+  color: #333;
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+
+footer .footer-col ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+footer .footer-col ul li {
+  margin-bottom: 8px;
+  color: #333;
+  cursor: pointer;
+}
+
+footer .social-icons {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+.footer-col .social-icons img {
+  width: 28px;  /* fixed width */
+  height: 28px; /* fixed height */
+  object-fit: cover; /* ensure image properly fits */
+  border-radius: 50%; /* optional: circle icon */
+}
+/* Copyright text */
+.copyright {
+  text-align: center;       /* center-align text */
+  color: #000;              /* কালো লেখা */
+  font-size: 20px;          /* font size */
+  margin: 12px 0 20px 0;    /* উপরে-নিচে spacing */
+}
+
+.contact-form input,.contact-form textarea{
+  width:100%;
+  padding:10px;
+  margin:8px 0;
+  border: 1px solid black;
+}
+
+.contact-form button{
+  background:var(--green);
+  color:white;
+  padding:10px 12px;
+  border: 1px solid black;
+  cursor:pointer;
+  font-weight:700;
+}
