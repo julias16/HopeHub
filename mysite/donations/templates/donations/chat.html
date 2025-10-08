@@ -1,0 +1,269 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat With Donor - HopeHub</title>
+  <style>
+:root{
+  --green: #05533f;
+  --green-dark: #076b25;
+  --accent:#f1fdf6;
+  --muted: #ffffff;
+  --soft:#eafdf3;
+  --radius:14px;
+  --shadow: 0 6px 20px rgba(16,42,30,0.08);
+  font-family: "Inter", system-ui, sans-serif;
+}
+*{box-sizing:border-box}
+body, h1, h2, h3, h4, h5, h6, input, textarea, button, p {
+    font-family: 'Inria Sans', sans-serif;
+}
+body{
+  margin:0;
+  background: #ffffff;
+  color:#133;
+  line-height:1.4;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{
+  max-width: 1440px;
+  width: 100%;
+  margin:28px auto;
+  padding:0 20px;
+}
+
+/* Header */
+header{
+  width:100%;
+  height:100px;
+  background:white;
+  padding:14px 18px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.brand img{
+  width:180px;
+  height:auto;
+}
+nav{
+  display:flex;
+  gap:30px;
+  align-items:center;
+  font-weight:600;
+  margin-left:auto;
+}
+.cta {
+  background: var(--green);
+  color: white;
+  padding: 8px 14px;
+  border-radius:25px;
+  border:2px solid black;
+  font-weight:700;
+  transition: background 0.3s;
+}
+.cta:hover{
+  background: var(--green-dark);
+}
+    .chat-card {
+      background: var(--card);
+      box-shadow: var(--shadow);
+      border-radius: 10px;
+      padding: 25px;
+      max-width: 900px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .chat-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .chat-header h3 {
+      margin: 0;
+      font-size: 20px;
+    }
+
+    .call-btn {
+      width: 40px;
+      height: 40px;
+      background: #000;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .messages-area {
+      padding-bottom: 90px;
+      min-height: 400px;
+    }
+
+    .message {
+      display: flex;
+      align-items: flex-end;
+      margin: 15px 0;
+    }
+
+    .their .bubble {
+      background: #e3e3e3;
+      border-radius: 12px 12px 12px 4px;
+      padding: 12px 16px;
+      font-size: 16px;
+    }
+
+    .mine {
+      justify-content: flex-end;
+    }
+
+    .mine .bubble {
+      background: var(--green-soft);
+      border-radius: 12px 12px 4px 12px;
+      padding: 12px 16px;
+      font-size: 16px;
+    }
+
+    .time {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .message-input-wrap {
+      position: absolute;
+      bottom: 15px;
+      left: 25px;
+      right: 25px;
+    }
+
+    .message-input {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .message-input input {
+      flex: 1;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+      outline: none;
+    }
+
+  .send-button {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: var(--green);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.send-button svg {
+    stroke: #fff; /* icon color */
+}
+
+  </style>
+</head>
+<body>
+
+ <div class="wrap">
+    <!-- Header -->
+    <header>
+      <div class="brand">
+        <a href="{% url 'home' %}"> <img src="{% static 'image/logo.png' %}" alt="HopeHub Logo"> </a>
+      </div>
+
+      <nav aria-label="Main navigation">
+  <a href="{% url 'home' %}">Home</a>
+  <a href="{% url 'aboutus' %}">About</a>
+  <a href="{% url 'donateform' %}">Donate</a>
+  <a href="{% url 'blog' %}">Blog</a>
+  <a href="{% url 'contactus' %}">Contact</a>
+
+  {% if user.is_authenticated %}
+    <a href="{% url 'profile' %}" class="profile-icon">
+      <img src="{% static 'image/profile.png' %}" alt="Profile" style="width:60px; height:40px; border-radius:50%;">
+    </a>
+  {% else %}
+    <a class="cta" href="{% url 'login' %}">Login/Signup</a>
+  {% endif %}
+</nav>
+
+    </header>
+
+  <div class="chat-card">
+    <div class="chat-header">
+      <h3>Chat With Donor</h3>
+      <div class="call-btn">📞</div>
+    </div>
+
+    <div class="messages-area">
+     {% for msg in messages %}
+    <div class="message {% if msg.sender == request.user %}mine{% else %}their{% endif %}">
+        <div class="bubble">{{ msg.message }}</div>
+    </div>
+{% empty %}
+    <p style="text-align:center; color:gray;">No messages yet</p>
+{% endfor %}
+    </div>
+
+    <div class="message-input-wrap">
+      <form method="POST" action="" class="message-input">
+        {% csrf_token %}
+        <input type="text" name="content" placeholder="Type a message..." required>
+        <button type="submit" class="send-button">
+  <!-- Arrow icon like WhatsApp -->
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" width="20" height="20">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14m0 0l-6-6m6 6l-6 6"/>
+  </svg>
+</button>
+
+      </form>
+    </div>
+  </div>
+ </div>
+<script>
+function sendMessage(){
+  const input = document.getElementById('message-input');
+  const text = input.value.trim();
+  if(text === "") return;
+
+  const messagesArea = document.getElementById('messages-area');
+
+  // Create message bubble
+  const msgDiv = document.createElement('div');
+  msgDiv.classList.add('message','mine');
+  msgDiv.textContent = text;
+
+  messagesArea.appendChild(msgDiv);
+  messagesArea.scrollTop = messagesArea.scrollHeight; // auto scroll
+
+  input.value = "";
+
+  // optional: fake reply after 1 sec
+  setTimeout(()=>{
+    const replyDiv = document.createElement('div');
+    replyDiv.classList.add('message','their');
+    replyDiv.textContent = "Thanks for your message!";
+    messagesArea.appendChild(replyDiv);
+    messagesArea.scrollTop = messagesArea.scrollHeight;
+  }, 1000);
+}
+</script>
+</body>
+</html>

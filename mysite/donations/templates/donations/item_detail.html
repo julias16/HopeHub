@@ -1,7 +1,7 @@
 {% load static %}
 
 <!doctype html>
-<html lang="bn">
+<html lang="bn" xmlns="http://www.w3.org/1999/html">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -71,7 +71,10 @@
             </div>
 
             <!-- Chat Button -->
-            <button class="chat-btn">💬 Chat with Donor</button>
+<a href="{% url 'chat' item.id %}">
+    <button class="chat-btn">💬 Chat with Donor</button>
+            </a>
+
         </div>
     </div>
 </main>

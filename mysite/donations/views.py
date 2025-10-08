@@ -75,4 +75,17 @@ def send_message(request, item_id):
             Chat.objects.create(item=item, sender=request.user, message=msg_text)
             messages.success(request, "Message sent!")
     return redirect('item_detail', item_id=item_id)
+@login_required
+def chat(request, item_id):
 
+    donation_item = get_object_or_404(Donation, id=item_id)
+
+    if request.method == "POST":
+        message = request.POST.get("message")
+
+        print("User sent:", message)
+
+    context = {
+        "donation_item": donation_item
+    }
+    return render(request, "donations/chat.html", context)

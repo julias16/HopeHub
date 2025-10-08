@@ -8,4 +8,6 @@ urlpatterns = [
     path('receive/furniture/', views.furniturereceive, name='furniturereceive'),
     path('item/<int:item_id>/', views.item_detail, name='item_detail'),
     path('item/<int:item_id>/send_message/', views.send_message, name='send_message'),
+    path("chat/<int:item_id>/", views.chat, name="chat"),
+
 ]

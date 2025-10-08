@@ -30,4 +30,5 @@ def clothsreceive(request):
     return render(request, 'clothsreceive.html')
 def furniturereceive(request):
     return render(request, 'furniturereceive.html')
-
+def furniturereceive(request):
+    return render(request, 'furniturereceive.html')
