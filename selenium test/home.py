@@ -9,7 +9,7 @@ import time
 
 # ChromeDriver path
 
-path = "C:/Users/USER/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+path = "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
 
 service = Service(path)
 driver = webdriver.Chrome(service=service)

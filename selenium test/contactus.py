@@ -7,7 +7,7 @@ from selenium.common.exceptions import NoSuchElementException, ElementClickInter
 import time
 
 # ChromeDriver path
-path = "C:/Users/USER/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+path = "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
 driver = webdriver.Chrome(service=Service(path))
 
 #  Contact Us open

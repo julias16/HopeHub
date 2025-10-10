@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import NoSuchElementException, ElementClickInterceptedException
 import time
 
-path = "C:/Users/USER/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+path = "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
 
 driver=webdriver.Chrome(service=Service(path))
 driver.get('http://127.0.0.1:8000/accounts/login/')

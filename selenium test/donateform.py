@@ -1,78 +1,98 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 import time
+import os
 
-# ChromeDriver path
-path = "C:/Users/USER/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
-
+# ✅ Path to your ChromeDriver
+path = "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
 service = Service(path)
 driver = webdriver.Chrome(service=service)
 driver.set_window_size(1440, 1000)
 wait = WebDriverWait(driver, 10)
 
+# ✅ Your local Django site URL
+BASE_URL = "http://127.0.0.1:8000"
+
 try:
-    # 1️⃣ LOGIN
-    driver.get("http://127.0.0.1:8000/accounts/login/")
-    print("🔹 Login page opened")
+    # 1️⃣ Login first
+    driver.get(f"{BASE_URL}/accounts/login/")
+    print("🟢 Login page opened")
 
-    identifier = wait.until(EC.presence_of_element_located((By.ID, "identifier")))
-    password = wait.until(EC.presence_of_element_located((By.ID, "password")))
+    identifier_field = wait.until(EC.presence_of_element_located((By.ID, "identifier")))
+    identifier_field.send_keys("mohona")
+
+    password_field = wait.until(EC.presence_of_element_located((By.ID, "password")))
+    password_field.send_keys("123")
+
     login_button = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "btn")))
-
-    identifier.send_keys("mohona")   # তোমার username
-    password.send_keys("123")     # তোমার password
     login_button.click()
-    print("✅ Logged in successfully")
+    print("🟢 Logged in successfully")
     time.sleep(3)
 
-    # 2️⃣ DONATION FORM PAGE OPEN
-    driver.get("http://127.0.0.1:8000/donations/donateform/")
-    print("🔹 Donation form page opened")
+    # 2️⃣ Open donation page
+    driver.get(f"{BASE_URL}/donations/donateform/")   # ⚠️ update this URL if different
+    print("🟢 Donation page opened")
     time.sleep(2)
 
-    # 3️⃣ FORM FILL-UP
-    wait.until(EC.presence_of_element_located((By.NAME, "donor_name"))).send_keys("Kohinur Hossain Mim")
-    driver.find_element(By.NAME, "donor_phone").send_keys("01737465097")
-    driver.find_element(By.NAME, "donor_address").send_keys("Farmgate, Dhaka")
-    driver.find_element(By.NAME, "item_type").send_keys("food")
+    # 3️⃣ Fill donation form
+    wait.until(EC.presence_of_element_located((By.NAME, "donor_name"))).send_keys("Sadia Afrin Mohona")
+    time.sleep(2)
+    driver.find_element(By.NAME, "donor_phone").send_keys("01712345678")
+    time.sleep(2)
+    driver.find_element(By.NAME, "donor_address").send_keys("Dhaka, Bangladesh")
+    time.sleep(2)
+    print("✅ Donor details filled")
+
+    # Select item type
+    item_type = Select(driver.find_element(By.NAME, "item_type"))
+    item_type.select_by_value("clothes")
+    time.sleep(2)
+    print("✅ Item type selected: clothes")
+
+    # Quantity
     driver.find_element(By.NAME, "quantity").send_keys("5")
-    driver.find_element(By.NAME, "item_name").send_keys("Rice, Dal, Vegetables")
+    print("✅ Quantity added")
+    time.sleep(2)
 
-    print("✅ Form fields filled successfully")
+    # Item name / description
+    driver.find_element(By.NAME, "item_name").send_keys("Three Piece")
+    print("✅ Item name added")
+    time.sleep(2)
 
-    # 4️⃣ FILE UPLOAD (optional)
+    # Upload image file (place any image in same folder)
+    image_path = os.path.abspath("C:/Users/hp/Downloads/threePiece.jpg")  # make sure you have this image
+    if os.path.exists(image_path):
+        driver.find_element(By.NAME, "file_upload").send_keys(image_path)
+        print("✅ Image uploaded")
+        time.sleep(2)
+    else:
+        print("⚠️ sample.jpg not found — skipping image upload")
+
+    # 4️⃣ Submit form
+    submit_btn = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "donate-btn")))
+    submit_btn.click()
+    print("🟢 Donation form submitted")
+    time.sleep(2)
+
+    # 5️⃣ Wait for success message
     try:
-        file_input = driver.find_element(By.NAME, "file_upload")
-        file_input.send_keys(r"C:/Users/USER/Downloads/test_image.jpg")  # test image path
-        print("✅ File uploaded successfully")
-    except:
-        print("⚠ File upload not found (optional).")
+        success_message = wait.until(EC.presence_of_element_located((By.XPATH, "//p[contains(text(),'successfully') or contains(text(),'Thank')]")))
+        print("✅ Donation success message found:", success_message.text)
+        time.sleep(2)
+    except TimeoutException:
+        print("⚠️ No success message appeared — check form validation or redirect")
 
-    # 5️⃣ SUBMIT FORM
-    donate_button = wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, "button.donate-btn")))
-    donate_button.click()
-    print("✅ Donate button clicked")
 
-    time.sleep(3)
-
-    # 6️⃣ CHECK SUCCESS MESSAGE
-    try:
-        success_msg = driver.find_element(By.XPATH, "//p[contains(text(), 'success') or contains(text(), 'Thank')]")
-        print("🎉 Donation submitted successfully →", success_msg.text)
-    except:
-        print("⚠ No visible success message found (may still have submitted).")
+    time.sleep(2)
+    print("\n🎉 Donation form tested successfully!")
 
 except TimeoutException as e:
-    print("❌ Page load timeout:", e)
-
-except Exception as e:
-    print("❌ Unexpected error:", e)
+    print("⏰ Page took too long to load:", e)
 
 finally:
-    time.sleep(2)
     driver.quit()
-    print("🔚 Test full completed.")
+    print("🔒 Browser closed")
