@@ -21,13 +21,20 @@ try:
     )
 
     # Fill form fields
-    driver.find_element(By.ID, "name").send_keys("Test User")
-    driver.find_element(By.ID, "username").send_keys("testuser123")
-    driver.find_element(By.ID, "email").send_keys("testuser123@gmail.com")
-    driver.find_element(By.ID, "phone").send_keys("01700000000")
+    driver.find_element(By.ID, "name").send_keys("Sabiha")
+    time.sleep(2)
+    driver.find_element(By.ID, "username").send_keys("SabihaAfrin")
+    time.sleep(2)
+    driver.find_element(By.ID, "email").send_keys("sabiha@gmail.com")
+    time.sleep(2)
+    driver.find_element(By.ID, "phone").send_keys("01819442904")
+    time.sleep(2)
     driver.find_element(By.ID, "address").send_keys("Dhaka, Bangladesh")
-    driver.find_element(By.ID, "password1").send_keys("TestPass123")
-    driver.find_element(By.ID, "password2").send_keys("TestPass123")
+    time.sleep(2)
+    driver.find_element(By.ID, "password1").send_keys("sabiha123")
+    time.sleep(2)
+    driver.find_element(By.ID, "password2").send_keys("sabiha123")
+    time.sleep(2)
 
     # Click the Sign Up button
     signup_button = WebDriverWait(driver, 10).until(

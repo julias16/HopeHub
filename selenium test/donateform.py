@@ -7,18 +7,17 @@ from selenium.common.exceptions import TimeoutException
 import time
 import os
 
-# ✅ Path to your ChromeDriver
+
 path = "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
 service = Service(path)
 driver = webdriver.Chrome(service=service)
 driver.set_window_size(1440, 1000)
 wait = WebDriverWait(driver, 10)
 
-# ✅ Your local Django site URL
 BASE_URL = "http://127.0.0.1:8000"
 
 try:
-    # 1️⃣ Login first
+    #  Login first
     driver.get(f"{BASE_URL}/accounts/login/")
     print("🟢 Login page opened")
 
@@ -33,66 +32,66 @@ try:
     print("🟢 Logged in successfully")
     time.sleep(3)
 
-    # 2️⃣ Open donation page
-    driver.get(f"{BASE_URL}/donations/donateform/")   # ⚠️ update this URL if different
+    #  Open donation page
+    driver.get(f"{BASE_URL}/donations/donateform/")
     print("🟢 Donation page opened")
     time.sleep(2)
 
-    # 3️⃣ Fill donation form
+    #  Fill donation form
     wait.until(EC.presence_of_element_located((By.NAME, "donor_name"))).send_keys("Sadia Afrin Mohona")
     time.sleep(2)
     driver.find_element(By.NAME, "donor_phone").send_keys("01712345678")
     time.sleep(2)
     driver.find_element(By.NAME, "donor_address").send_keys("Dhaka, Bangladesh")
     time.sleep(2)
-    print("✅ Donor details filled")
+    print(" Donor details filled")
 
     # Select item type
     item_type = Select(driver.find_element(By.NAME, "item_type"))
     item_type.select_by_value("clothes")
     time.sleep(2)
-    print("✅ Item type selected: clothes")
+    print(" Item type selected: clothes")
 
     # Quantity
     driver.find_element(By.NAME, "quantity").send_keys("5")
-    print("✅ Quantity added")
+    print(" Quantity added")
     time.sleep(2)
 
     # Item name / description
     driver.find_element(By.NAME, "item_name").send_keys("Three Piece")
-    print("✅ Item name added")
+    print(" Item name added")
     time.sleep(2)
 
-    # Upload image file (place any image in same folder)
-    image_path = os.path.abspath("C:/Users/hp/Downloads/threePiece.jpg")  # make sure you have this image
+
+    image_path = os.path.abspath("C:/Users/hp/Downloads/threePiece.jpg")
     if os.path.exists(image_path):
         driver.find_element(By.NAME, "file_upload").send_keys(image_path)
-        print("✅ Image uploaded")
+        print(" Image uploaded")
         time.sleep(2)
     else:
-        print("⚠️ sample.jpg not found — skipping image upload")
+        print("️ sample.jpg not found — skipping image upload")
 
-    # 4️⃣ Submit form
+    #  Submit form
     submit_btn = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "donate-btn")))
     submit_btn.click()
     print("🟢 Donation form submitted")
     time.sleep(2)
 
-    # 5️⃣ Wait for success message
+    #  Wait for success message
     try:
         success_message = wait.until(EC.presence_of_element_located((By.XPATH, "//p[contains(text(),'successfully') or contains(text(),'Thank')]")))
-        print("✅ Donation success message found:", success_message.text)
+        print(" Donation success message found:", success_message.text)
         time.sleep(2)
     except TimeoutException:
-        print("⚠️ No success message appeared — check form validation or redirect")
+        print(" No success message appeared — check form validation or redirect")
 
 
     time.sleep(2)
-    print("\n🎉 Donation form tested successfully!")
+    print("\n Donation form tested successfully!")
 
 except TimeoutException as e:
-    print("⏰ Page took too long to load:", e)
+    print(" Page took too long to load:", e)
 
 finally:
     driver.quit()
-    print("🔒 Browser closed")
+    print(" Browser closed")
