@@ -50,8 +50,8 @@ try:
     WebDriverWait(driver, 5).until(
         EC.url_contains("login")  # check if redirected to login page
     )
-    print("✅ Redirected to login page successfully after signup.")
+    print("✅ Successfully redirected to the login page after signup.")
 except:
-    print("⚠ No redirect detected, check manually if signup worked.")
+    print("⚠ No redirect detected. Please verify manually if the signup was successful.")
 
 driver.quit()
