@@ -7,14 +7,15 @@ from selenium.common.exceptions import TimeoutException
 import time
 
 # ChromeDriver path
-path = "C:/Users/hp/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+path = "C:/Users/USER/Downloads/chromedriver-win64/chromedriver-win64/chromedriver.exe"
+
 service = Service(path)
 driver = webdriver.Chrome(service=service)
 driver.set_window_size(1440, 1000)
 wait = WebDriverWait(driver, 5)
 
 try:
-    # 1️ Login
+    # 1 Login
     driver.get("http://127.0.0.1:8000/accounts/login/")
     print(" Login page opened")
 
@@ -29,7 +30,7 @@ try:
     print(" Logged in successfully")
     time.sleep(3)
 
-    # 2️ Category first pages
+    # 2 Category first pages
     categories = ["foodfirst", "clothsfirst", "furniturefirst"]
 
     for cat in categories:
